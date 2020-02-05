@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<!--
+Kód jsem pro Vás rovnou i zdokumentoval. Jak jsem psal již v úvodu, základem všeho jsou komponenty a princip sestavení stránky je velice jednoduchý:
+1. Načteme JS knihovnu React do stránky. Ta je zde uložena na on-line úložišti, proto jsme nic nemuseli stahovat
+2. Vytvoříme kořen (vstupní bod) naší komponentové struktury
+3. Pomocí nástrojů z knihovny React vytvoříme vlastní komponentu pro nadpis
+4. Vykreslíme komponentu do našeho kořene na stránce
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hello World!</title>
+
+    <!-- Načtení React.js -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+</head>
+
+<body>
+    <!-- Kořen naší komponentové struktury -->
+    <div id="root"></div>
+
+    <!-- JS kód naší aplikace za použití knihovny React -->
+    <script>
+        // Definice React komponenty
+        class HelloWorld extends React.Component {
+            render() { // Vykreslení komponenty
+                // Vykreslení vrátí element <h1> s textem "Hello World"
+                return React.createElement('h1', null, 'Hello World!');
+            }
+        }
+
+        // Vykreslení instance komponenty do HTML struktury
+        ReactDOM.render(
+            React.createElement(HelloWorld), // Vytvoření komponenty
+            document.getElementById('root')  // Připojení do kořene aplikace
+        );
+    </script>
+</body>
+
+</html>

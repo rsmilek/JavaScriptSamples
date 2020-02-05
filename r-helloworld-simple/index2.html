@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<!--
+JSX
+Ovšem to není vše z dnešní lekce. Také se vám tak nelíbí ta poměrně nepraktická kombinace HTML a JS s nutností psát všude dlouhý název funkce React.createElement()? 
+Je pravda, že název té funkce by se dal zkrátit např. pomocí uložení const e = React.createElement();, ale to stále není ono...
+
+Nejlepší by bylo nějakým způsobem efektivně zkombinovat daný JS kód s HTML a přesně o tom je také JSX (JavaScript + XML)!
+To nám totiž umožňuje psát HTML přímo do JS a to ne jako klasický string, ale opravdu jako HTML. A navíc si s ním React opět hezky rozumí a celkově nám to tak zjednoduší vytváření HTML elementů i samotných komponent.
+
+Samozřejmě takováto kombinace nebude už jen tak fungovat přímo v prohlížeči, který toto chování zkrátka nepodporuje. 
+To ale neznamená, že si nemůžeme vzít na pomoc další knihovny jako např. Babel, který nám zajistí překlad našeho JSX do podoby srozumitelné prohlížeči a to dokonce přímo při načtení stránky.
+-->
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Hello World!</title>
+
+    <!-- Načtení React.js -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <!-- Načtení Babel překladače pro JSX -->
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- Kořen naší komponentové struktury -->
+    <div id="root"></div>
+
+    <!-- Babel kód naší aplikace s podporou JSX a za použití knihovny React -->
+    <script type="text/babel">
+        // Definice React komponenty
+        class HelloWorld extends React.Component {
+            render() { // Vykreslení komponenty
+                return <h1>Hello, world!</h1>;
+            }
+        }
+
+        // Vykreslení instance komponenty do HTML struktury
+        ReactDOM.render(
+            <HelloWorld />, // Vytvoření komponenty
+            document.getElementById('root')  // Připojení do kořene aplikace
+        );
+    </script>
+</body>
+
+</html>
