@@ -16,6 +16,7 @@ class OperationSelect extends Component {
 
   render() {
     const { label, name, operations } = this.props;
+
     const options = Object.keys(operations).map((value, index) => {
       return (
         <option key={index} value={value}>
@@ -33,7 +34,7 @@ class OperationSelect extends Component {
           value={this.state.value}
           onChange={this.handleChange}
         >
-          <option value="">--Vyberte operaci--</option>
+          <option value="">--Choose operation--</option>
           {options}
         </select>
       </label>

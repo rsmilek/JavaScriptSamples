@@ -41,7 +41,7 @@ export default class App extends Component {
 
   // Nakonec se tedy podíváme na samotnou komponentu naší aplikace, kterou upravíme následovně:
   render() {
-    const title = "React kalkulačka";
+    const title = "React calculator";
     return (
       <div className="App">
         <h1>{title}</h1>

@@ -7,10 +7,10 @@ class CalculatorForm extends Component {
   constructor(props) {
     super(props);
     this.operations = {
-      [Operation.ADD]: "Sčítání",
-      [Operation.SUBTRACT]: "Odčítání",
-      [Operation.MULTIPLY]: "Násobení",
-      [Operation.DIVIDE]: "Dělení"
+      [Operation.ADD]: "Add",
+      [Operation.SUBTRACT]: "Subtract",
+      [Operation.MULTIPLY]: "Multiply",
+      [Operation.DIVIDE]: "Divide"
     };
     this.state = {
       x: 0,
@@ -56,24 +56,24 @@ class CalculatorForm extends Component {
       <form className="CalculatorForm" onSubmit={this.handleSubmit}>
         <NumberInput
           name="x"
-          label="První číslo:"
+          label="First number:"
           value={this.state.x}
           onChange={this.handleChangeX}
         />
         <NumberInput
           name="y"
-          label="Druhé číslo:"
+          label="Second number:"
           value={this.state.y}
           onChange={this.handleChangeY}
         />
         <OperationSelect
           name="operation"
-          label="Operace:"
+          label="Operation:"
           operations={this.operations}
           value={this.state.operation}
           onChange={this.handleChangeOperation}
         />
-        <input type="submit" value="Spočítej" />
+        <input type="submit" value="Calculate" />
       </form>
     );
   }
