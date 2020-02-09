@@ -16,7 +16,6 @@ class OperationSelect extends Component {
 
   render() {
     const { label, name, operations } = this.props;
-
     const options = Object.keys(operations).map((value, index) => {
       return (
         <option key={index} value={value}>

@@ -12,8 +12,14 @@ class CalculatorForm extends Component {
       [Operation.MULTIPLY]: "Násobení",
       [Operation.DIVIDE]: "Dělení"
     };
-    this.state = { x: 0, y: 0, operation: null, result: null };
-
+    this.state = {
+      x: 0,
+      y: 0,
+      operation: null,
+      output: null
+    };
+    // V konstruktoru definujeme obecnou obsluhu handleChange a poté nabindujeme konkrétní obslužné metody handleChangeX a handleChangeY
+    // pro oba číselné vstupy. Tyto metody poté předáme právě v atributu onChange instancím komponenty NumberInput.
     const handleChange = (name, value) => this.setState({ [name]: value });
     this.handleChangeX = handleChange.bind(this, "x");
     this.handleChangeY = handleChange.bind(this, "y");
@@ -38,12 +44,13 @@ class CalculatorForm extends Component {
   }
 
   handleSubmit(event) {
-    event.preventDefault();
-    const result = this.calculate();
-    this.setState({ result });
-    this.props.onResultChange(result);
+    event.preventDefault(); // Zamezíme výchozí akci pri pokusu o odeslani formulare
+    const output = this.calculate(); // Spocitame vysledek
+    this.setState({ output }); // Update stavu komponenty
+    this.props.onOutputChange(output); // Propage vysledku navenek
   }
 
+  // Nyní, když už máme příslušné části, můžeme složit komponentu našeho formuláře:
   render() {
     return (
       <form className="CalculatorForm" onSubmit={this.handleSubmit}>
