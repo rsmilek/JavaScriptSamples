@@ -123,4 +123,4 @@ class CounterSetup extends Component {
   }
 }
 
-export default Counter;
+export default CounterSetup;

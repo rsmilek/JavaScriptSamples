@@ -13,6 +13,8 @@ export default class Counter extends Component {
   render() {
     return (
       <div>
+        {/* Content given to react component by children attribute */}
+        <span>{this.props.children}</span>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement({ id: 1 })} // Must be passed function reference. Arrow function is a way how to pass some parameters

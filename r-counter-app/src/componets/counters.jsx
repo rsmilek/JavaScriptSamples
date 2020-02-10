@@ -15,7 +15,10 @@ export default class Counters extends Component {
     return (
       <div>
         {this.state.counters.map(counter => (
-          <Counter key={counter.id} value={counter.value} /> // Pass content to react component by property 'value'
+          // Pass content to react component by property 'value' & as children attribute
+          <Counter key={counter.id} value={counter.value}>
+            #{counter.id}
+          </Counter>
         ))}
       </div>
     );
