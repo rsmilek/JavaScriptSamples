@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 
-class Counter extends Component {
+export default class Counter extends Component {
   state = {
-    count: 0
+    value: this.props.value // Initialize state of react component by given property 'value'
   };
 
   handleIncrement = product => {
     console.log(product);
-    this.setState({ count: this.state.count + 1 }); // Stores new value into state.count & synchronize view (update UI by new value) by async call or render() method
+    this.setState({ value: this.state.value + 1 }); // Stores new value into state.count & synchronize view (update UI by new value) by async call or render() method
   };
 
   render() {
     return (
-      <React.Fragment>
+      <div>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
           onClick={() => this.handleIncrement({ id: 1 })} // Must be passed function reference. Arrow function is a way how to pass some parameters
@@ -20,20 +20,18 @@ class Counter extends Component {
         >
           Increment
         </button>
-      </React.Fragment>
+      </div>
     );
   }
 
   getBadgeClasses() {
     let classes = "badge m-2 badge-"; // m-2 means margin 2
-    classes += this.state.count === 0 ? "warning" : "primary";
+    classes += this.state.value === 0 ? "warning" : "primary";
     return classes;
   }
 
   formatCount() {
-    const { count } = this.state;
-    return count === 0 ? "Zero" : count;
+    const { value } = this.state;
+    return value === 0 ? "Zero" : value;
   }
 }
-
-export default Counter;
