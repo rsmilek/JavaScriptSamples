@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 export default class Counter extends Component {
   state = {
-    value: this.props.value // Initialize state of react component by given property 'value'
+    value: this.props.counter.value // Initialize state of react component by given property 'counter.value'
   };
 
   handleIncrement = () => {
@@ -16,13 +16,13 @@ export default class Counter extends Component {
         <span>{this.props.children}</span>
         <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
         <button
-          onClick={() => this.handleIncrement({ id: 1 })} // Must be passed function reference. Arrow function is a way how to pass some parameters
+          onClick={this.handleIncrement} // Must be passed function reference. Arrow function is a way how to pass some parameters
           className="btn btn-secondary btn-sm"
         >
           Increment
         </button>
         <button
-          onClick={() => this.props.onDelete(this.props.id)} // 'Counter' component is raising event on 'Counters' component to be handled there
+          onClick={() => this.props.onDelete(this.props.counter.id)} // 'Counter' component is raising event on 'Counters' component to be handled there
           className="btn btn-danger btn-sm m-2"
         >
           Delete

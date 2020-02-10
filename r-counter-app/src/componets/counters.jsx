@@ -24,8 +24,7 @@ export default class Counters extends Component {
         {this.state.counters.map(counter => (
           <Counter
             key={counter.id}
-            id={counter.id}
-            value={counter.value} // Pass content to react component by property 'value'
+            counter={counter} // Pass content to child react component by property 'counter' to be ready for future expansion
             onDelete={this.handleDelete} // Pass reference to event handler to child react component
           >
             {/** Pass content to react component as 'children' attribute */}#
