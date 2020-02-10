@@ -5,8 +5,7 @@ export default class Counter extends Component {
     value: this.props.value // Initialize state of react component by given property 'value'
   };
 
-  handleIncrement = product => {
-    console.log(product);
+  handleIncrement = () => {
     this.setState({ value: this.state.value + 1 }); // Stores new value into state.count & synchronize view (update UI by new value) by async call or render() method
   };
 
@@ -21,6 +20,12 @@ export default class Counter extends Component {
           className="btn btn-secondary btn-sm"
         >
           Increment
+        </button>
+        <button
+          onClick={() => this.props.onDelete(this.props.id)} // 'Counter' component is raising event on 'Counters' component to be handled there
+          className="btn btn-danger btn-sm m-2"
+        >
+          Delete
         </button>
       </div>
     );
