@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 
 export default class Counter extends Component {
+  componentDidUpdate(prevProps /*, prevState*/) {
+    console.log("prevProps", prevProps);
+    // console.log("prevState", prevState);
+    if (prevProps.counter.value !== this.props.counter.value) {
+      // fg. get new data from server, or store data to server
+      console.log("Props changed!"); // NOT WORKING PROPERLY !!!
+    }
+  }
+
   render() {
     console.log("Counter - rendered");
     return (

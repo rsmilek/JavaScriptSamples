@@ -21,6 +21,7 @@ export default class App extends Component {
 
   componentDidMount() {
     console.log("App - mounted");
+    // f.g. get data from server
   }
 
   handleReset = () => {
