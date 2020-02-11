@@ -14,6 +14,15 @@ export default class App extends Component {
     ]
   };
 
+  constructor() {
+    super();
+    console.log("App - created");
+  }
+
+  componentDidMount() {
+    console.log("App - mounted");
+  }
+
   handleReset = () => {
     console.log("Event handler Reset called!");
     const counters = [...this.state.counters]; // Clone array
@@ -37,6 +46,7 @@ export default class App extends Component {
   };
 
   render() {
+    console.log("App - rendered");
     return (
       <React.Fragment>
         <NavBar

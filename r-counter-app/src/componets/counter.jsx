@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 export default class Counter extends Component {
   render() {
+    console.log("Counter - rendered");
     return (
       <div>
         {/* Content given to react component by children attribute */}
