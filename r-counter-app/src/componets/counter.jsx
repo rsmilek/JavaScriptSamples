@@ -6,8 +6,13 @@ export default class Counter extends Component {
     // console.log("prevState", prevState);
     if (prevProps.counter.value !== this.props.counter.value) {
       // fg. get new data from server, or store data to server
-      console.log("Props changed!"); // NOT WORKING PROPERLY !!!
+      console.log("Counter - Props changed!"); // NOT WORKING PROPERLY !!!
     }
+  }
+
+  componentWillUnmount() {
+    console.log("Counter - unmount");
+    // fg. do cleaning task, f.g. remove timers, listeners ... to avoid memory leaks
   }
 
   render() {
