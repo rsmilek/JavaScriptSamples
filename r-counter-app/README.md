@@ -3,7 +3,9 @@
 This project implements simple shopping card in React.
 It's based on amazing [React video tutorial from Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
 
-To put into operation run ### 'npm install' to install packages app depends on. Requires node.js.
+### 'npm install'
+
+Installs the packages app depends on. Requires node.js.
 
 ![Counters](screenshots/counters.png)
 
