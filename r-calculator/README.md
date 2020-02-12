@@ -1,3 +1,16 @@
+# DESCRIPTION
+
+This project implements simple calculator in React.
+It's based on [React web tutorial on IT network](https://www.itnetwork.cz/javascript/react)
+
+### 'npm install'
+
+Installs the packages app depends on. Requires node.js.
+
+![Calculator](screenshots/calculator.png)
+
+## React App Documentation
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

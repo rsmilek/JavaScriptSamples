@@ -1,4 +1,4 @@
-## DESCRIPTION
+# DESCRIPTION
 
 This project implements simple shopping card in React.
 It's based on amazing [React video tutorial from Mosh](https://www.youtube.com/watch?v=Ke90Tje7VS0)
