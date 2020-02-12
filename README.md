@@ -12,4 +12,4 @@ This project implements simple calculator in React.
 
 This project implements simple shopping card in React.
 
-![Counters](r-counters/screenshots/counters.png)
+![Counters](r-counter-app/screenshots/counters.png)
