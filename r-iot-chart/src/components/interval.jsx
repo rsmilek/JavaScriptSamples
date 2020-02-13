@@ -2,7 +2,9 @@
 import React, { Component } from "react";
 
 class Interval extends Component {
-  state = {};
+  state = {
+    intervals: ["Day", "Month", "Year"]
+  };
 
   handleClick = (id, event) => {
     event.preventDefault();
@@ -12,47 +14,19 @@ class Interval extends Component {
   render() {
     return (
       <React.Fragment>
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Interval pagination">
           <ul className="pagination m-2">
-            <li className="page-item disabled">
-              <a className="page-link" href="#" aria-label="Previous">
-                <span aria-hidden="true">&laquo;</span>
-                <span className="sr-only">Previous</span>
-              </a>
-            </li>
-            <li className="page-item active">
-              <a
-                className="page-link"
-                href="#"
-                onClick={event => this.handleClick("Day", event)}
-              >
-                Day
-              </a>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link"
-                href="#"
-                onClick={event => this.handleClick("Month", event)}
-              >
-                Month
-              </a>
-            </li>
-            <li className="page-item">
-              <a
-                className="page-link"
-                href="#"
-                onClick={event => this.handleClick("Year", event)}
-              >
-                Year
-              </a>
-            </li>
-            <li className="page-item disabled">
-              <a className="page-link" href="#" aria-label="Next">
-                <span aria-hidden="true">&raquo;</span>
-                <span className="sr-only">Next</span>
-              </a>{" "}
-            </li>
+            {this.state.intervals.map(i => (
+              <li className="page-item" key={i}>
+                <a
+                  className="page-link"
+                  href="#"
+                  onClick={event => this.handleClick(i, event)}
+                >
+                  {i}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </React.Fragment>
