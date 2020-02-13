@@ -15,7 +15,7 @@ export default class Counters extends Component {
         </button>
         {counters.map(counter => (
           <Counter
-            key={counter.id}
+            key={counter.id} // Unique key for each item in list
             counter={counter} // Pass content to child react component by property 'counter' to be ready for future expansion
             onIncrement={onIncrement} // Populate event on parent component
             onDelete={onDelete} // Populate event on parent component
