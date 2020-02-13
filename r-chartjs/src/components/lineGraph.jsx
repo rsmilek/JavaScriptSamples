@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
-//import classes from "./LineGraph.module.css";
 
 export default class LineGraph extends Component {
   chartRef = React.createRef();
@@ -12,22 +11,39 @@ export default class LineGraph extends Component {
       type: "line",
       data: {
         //Bring in data
-        labels: ["Jan", "Feb", "March"],
+        labels: ["January", "February", "March", "April", "May"],
         datasets: [
           {
-            label: "Sales",
-            data: [86, 67, 91]
+            label: "Rainfall",
+            fill: false,
+            lineTension: 0.5,
+            backgroundColor: "rgba(75,192,192,1)",
+            borderColor: "rgba(0,0,0,1)",
+            borderWidth: 2,
+            data: [65, 59, 80, 81, 56]
           }
         ]
       },
       options: {
         //Customize chart options
+        title: {
+          display: true,
+          text: "Average Rainfall per month",
+          fontSize: 20
+        },
+        legend: {
+          display: true,
+          position: "right"
+        },
+        animation: {
+          duration: 0
+        }
       }
     });
   }
+
   render() {
     return (
-      // <div className={classes.graphContainer}>
       <div>
         <canvas id="myChart" ref={this.chartRef} />
       </div>
