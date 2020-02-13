@@ -3,12 +3,15 @@ import React, { Component } from "react";
 
 class Interval extends Component {
   state = {
+    activeIdx: 0,
     intervals: ["Day", "Month", "Year"]
   };
 
   handleClick = (id, event) => {
     event.preventDefault();
     console.log(id);
+    const activeIdx = this.state.intervals.indexOf(id);
+    this.setState({ activeIdx });
   };
 
   render() {
@@ -17,7 +20,7 @@ class Interval extends Component {
         <nav aria-label="Interval pagination">
           <ul className="pagination m-2">
             {this.state.intervals.map(i => (
-              <li className="page-item" key={i}>
+              <li className={this.getPageItemClasses(i)} key={i}>
                 <a
                   className="page-link"
                   href="#"
@@ -31,6 +34,13 @@ class Interval extends Component {
         </nav>
       </React.Fragment>
     );
+  }
+
+  getPageItemClasses(id) {
+    const idx = this.state.intervals.indexOf(id);
+    let classes = "page-item";
+    if (idx === this.state.activeIdx) classes += " active";
+    return classes;
   }
 }
 
