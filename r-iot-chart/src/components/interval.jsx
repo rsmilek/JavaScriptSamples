@@ -18,7 +18,7 @@ class Interval extends Component {
     return (
       <React.Fragment>
         <nav aria-label="Interval pagination">
-          <ul className="pagination m-2">
+          <ul className="pagination justify-content-center m-2">
             {this.state.intervals.map(i => (
               <li className={this.getPageItemClasses(i)} key={i}>
                 <a
