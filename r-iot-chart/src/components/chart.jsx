@@ -6,9 +6,9 @@ const state = {
     {
       label: "Temp",
       fill: false,
-      lineTension: 0.5,
+      lineTension: 0,
       backgroundColor: "rgba(75,192,192,1)",
-      borderColor: "rgba(0,0,0,1)",
+      borderColor: "rgba(75,192,192,1)",
       borderWidth: 2,
       data: [
         {
@@ -116,13 +116,14 @@ const state = {
   ]
 };
 
-export default class Chart extends Component {
+class Chart extends Component {
   render() {
     return (
       <React.Fragment>
         <Line
           data={state}
           options={{
+            responsive: true,
             scales: {
               xAxes: [
                 {
@@ -166,3 +167,5 @@ export default class Chart extends Component {
     );
   }
 }
+
+export default Chart;
