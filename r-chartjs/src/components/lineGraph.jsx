@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 
 export default class LineGraph extends Component {
-  chartRef = React.createRef();
+  constructor(props) {
+    super(props);
+    this.chartRef = React.createRef();
+  }
 
   componentDidMount() {
     const myChartRef = this.chartRef.current.getContext("2d");
