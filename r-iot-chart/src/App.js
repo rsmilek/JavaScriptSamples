@@ -1,15 +1,15 @@
-import React from "react";
+import React, { Component } from "react";
 import Interval from "./components/interval";
-import Chart from "./components/chart";
+import IotChart from "./components/iotChart";
 import "./App.css";
 
-function App() {
-  return (
-    <div className="App">
-      <Interval />
-      <Chart />
-    </div>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <Interval />
+        <IotChart />
+      </div>
+    );
+  }
 }
-
-export default App;
