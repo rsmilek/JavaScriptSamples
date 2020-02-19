@@ -252,7 +252,7 @@ export default class IotChart extends Component {
       <React.Fragment>
         <div>
           {/* Adding component reference to chart's canvas */}
-          <canvas id="iotChart" ref={this.chartRef} />{" "}
+          <canvas ref={this.chartRef} />{" "}
         </div>
         <button onClick={this.handleClick}>Button</button>
       </React.Fragment>

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { Component } from "react";
 
-class Interval extends Component {
+export default class Interval extends Component {
   state = {
     activeIdx: 0,
     intervals: ["Day", "Month", "Year"]
@@ -43,5 +43,3 @@ class Interval extends Component {
     return classes;
   }
 }
-
-export default Interval;
