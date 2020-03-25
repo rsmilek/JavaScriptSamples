@@ -6,7 +6,7 @@
 // The end result should look something like this:
 // ➜  ~ curl -s localhost:3000
 // Hello world!
-// ➜  ~ curl -s localhost:3000/times | jq
+// ➜  ~ curl -s localhost:3000/times
 // [
 //   {
 //     "time": "2016-10-09T19:13:26.815Z",

@@ -7,8 +7,16 @@ It's based on [tutorial](https://node-influx.github.io/manual/tutorial.html)
 
 Installs the packages app depends on. Requires node.js.
 
-### 'npm index.js'
+### 'node index.js'
 
 Launches web app.
+
+### 'curl -s localhost:3000'
+
+Returns "Hello world!"
+
+### 'curl -s localhost:3000/times'
+
+Returns json string.
 
 ![Terminal test](screenshots/node-influx.png)
