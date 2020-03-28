@@ -1,10 +1,10 @@
 # DESCRIPTION
 
-This project demonstrates simple Redux pattern in React app.
-It implements simple cake shopping app.
+This project demonstrates simple Redux pattern with hooks in React app.
+It implements simple cake / ice cream shopping app.
 It's based on [React video tutorial series](https://www.youtube.com/playlist?list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK)
 
-![Cake shop](screenshots/r-redux-demo.png)
+![Shop](screenshots/r-redux-demo.png)
 
 ![Redux - React relationship](screenshots/react-redux.png)
 
