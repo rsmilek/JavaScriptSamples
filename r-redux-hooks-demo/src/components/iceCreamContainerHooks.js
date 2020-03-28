@@ -1,16 +1,18 @@
 import React from "react";
-import { byeCake } from "../redux/cake/cakeActions";
+import { byeIceCream } from "../redux/iceCream/iceCreamActions";
 import { useSelector, useDispatch } from "react-redux";
 
-export default function CakeContainerHooks(props) {
+export default function IceCreamContainerHooks(props) {
   // Selector hook: useSelector takes selector function as argument and is called with Redux store state. Replacement of 'mapStateToProps'.
-  const numberOfCakes = useSelector(state => state.cake.numberOfCakes);
+  const numberOfIceCream = useSelector(
+    state => state.iceCream.numberOfIceCreams
+  );
   // Dispatch hook: useDispatch return Redux dispatch function
   const dispatch = useDispatch();
   return (
     <div>
-      <h2>Number of cakes: {numberOfCakes}</h2>
-      <button onClick={() => dispatch(byeCake())}>Bye cake</button>
+      <h2>Number of ice cream: {numberOfIceCream}</h2>
+      <button onClick={() => dispatch(byeIceCream())}>Bye ice cream</button>
     </div>
   );
 }
