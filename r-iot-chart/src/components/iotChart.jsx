@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
-import { SERIES_DAY } from "../data/seriesDay";
-import { SERIES_WEEK } from "../data/seriesWeek";
+import { DATA_DAY } from "../data/seriesDay";
+import { DATA_WEEK } from "../data/seriesWeek";
 
 export default class IotChart extends Component {
   data = {
@@ -21,38 +21,16 @@ export default class IotChart extends Component {
   options = {
     responsive: true,
     scales: {
-      xAxes: [
-        {
-          type: "time",
-          time: {
-            unit: "hour",
-            stepSize: 3,
-            displayFormats: {
-              hour: "HH:mm"
-            }
-          }
-          //   ticks: {
-          //     min: "2020-02-12T00:00",
-          //     max: "2020-02-13T00:00"
-          //   }
-        }
-      ],
-      yAxes: [
-        {
-          ticks: {
-            stepSize: 2
-          }
-        }
-      ]
+      xAxes: []
     },
     title: {
       display: true,
-      text: "Temperature per hour",
-      fontSize: 20
+      text: "Temperature",
+      fontSize: 16
     },
     legend: {
       display: true,
-      position: "right"
+      position: "bottom"
     },
     animation: {
       duration: 0
@@ -87,9 +65,11 @@ export default class IotChart extends Component {
   // Assign chart's data depending on flag
   resolveChartData() {
     if (this.state.flag) {
-      this.data.datasets[0].data = SERIES_DAY;
+      this.data.datasets[0].data = DATA_DAY.series;
+      this.options.scales.xAxes[0] = DATA_DAY.xAxes;
     } else {
-      this.data.datasets[0].data = SERIES_WEEK;
+      this.data.datasets[0].data = DATA_WEEK.series;
+      this.options.scales.xAxes[0] = DATA_WEEK.xAxes;
     }
   }
 
