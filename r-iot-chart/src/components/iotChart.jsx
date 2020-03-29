@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 import { DATA_DAY } from "../data/seriesDay";
 import { DATA_WEEK } from "../data/seriesWeek";
+import { DATA_MONTH } from "../data/seriesMonth";
 
 export default class IotChart extends Component {
   data = {
@@ -40,7 +41,7 @@ export default class IotChart extends Component {
   ctx = {};
   myChart = {};
 
-  state = { flag: true };
+  state = { flag: 0 };
 
   constructor(props) {
     console.log("constructor", "Chart");
@@ -64,12 +65,19 @@ export default class IotChart extends Component {
 
   // Assign chart's data depending on flag
   resolveChartData() {
-    if (this.state.flag) {
-      this.data.datasets[0].data = DATA_DAY.series;
-      this.options.scales.xAxes[0] = DATA_DAY.xAxes;
-    } else {
-      this.data.datasets[0].data = DATA_WEEK.series;
-      this.options.scales.xAxes[0] = DATA_WEEK.xAxes;
+    switch (this.state.flag) {
+      case 1:
+        this.data.datasets[0].data = DATA_WEEK.series;
+        this.options.scales.xAxes[0] = DATA_WEEK.xAxes;
+        break;
+      case 2:
+        this.data.datasets[0].data = DATA_MONTH.series;
+        this.options.scales.xAxes[0] = DATA_MONTH.xAxes;
+        break;
+      default:
+        this.data.datasets[0].data = DATA_DAY.series;
+        this.options.scales.xAxes[0] = DATA_DAY.xAxes;
+        break;
     }
   }
 
@@ -91,7 +99,7 @@ export default class IotChart extends Component {
   handleClick = () => {
     console.log("handleClick", "Chart");
     this.resolveChartData();
-    this.setState({ flag: !this.state.flag });
+    this.setState({ flag: this.state.flag < 2 ? this.state.flag + 1 : 0 });
   };
 
   render() {
