@@ -41,8 +41,6 @@ export default class IotChart extends Component {
   ctx = {};
   myChart = {};
 
-  state = { flag: 0 };
-
   constructor(props) {
     console.log("constructor", "Chart");
     super(props);
@@ -65,7 +63,7 @@ export default class IotChart extends Component {
 
   // Assign chart's data depending on flag
   resolveChartData() {
-    switch (this.state.flag) {
+    switch (this.props.activeIdx) {
       case 1:
         this.data.datasets[0].data = DATA_WEEK.series;
         this.options.scales.xAxes[0] = DATA_WEEK.xAxes;
@@ -96,21 +94,14 @@ export default class IotChart extends Component {
     });
   }
 
-  handleClick = () => {
-    console.log("handleClick", "Chart");
-    this.resolveChartData();
-    this.setState({ flag: this.state.flag < 2 ? this.state.flag + 1 : 0 });
-  };
-
   render() {
-    console.log("render", "Chart");
+    console.log("render", "Chart", "activeIdx =", this.props.activeIdx);
     return (
       <React.Fragment>
         <div>
           {/* Adding component reference to chart's canvas */}
           <canvas ref={this.chartRef} />{" "}
         </div>
-        <button onClick={this.handleClick}>Button</button>
       </React.Fragment>
     );
   }

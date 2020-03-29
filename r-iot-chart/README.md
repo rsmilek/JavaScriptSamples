@@ -1,4 +1,12 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# DESCRIPTION
+
+This project implements simple IOT chart in React.
+
+![IotCharts](screenshots/iotchart.png)
+
+### 'npm install'
+
+Installs the packages app depends on. Requires node.js.
 
 ## Available Scripts
 
