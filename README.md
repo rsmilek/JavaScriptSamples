@@ -2,6 +2,12 @@
 
 A JS samples repository
 
+## IOT Chart
+
+This project implements simple IOT chart in React.
+
+![IotChart](r-iot-chart/screenshots/iotchart.png)
+
 ## Calculator
 
 This project implements simple calculator in React.
