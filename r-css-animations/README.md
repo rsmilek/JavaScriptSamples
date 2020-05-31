@@ -1,5 +1,7 @@
 npm install node-sass gsap
 
+https://www.youtube.com/watch?v=H_VnkjiodO4&frags=wn
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
