@@ -1,6 +1,13 @@
-npm install node-sass gsap
+# DESCRIPTION
 
-https://www.youtube.com/watch?v=H_VnkjiodO4&frags=wn
+This project implements simple web page with animations in React with help of node packages node-sass gsap.
+It's based on amazing React video tutorials [part 1 (styling)](https://www.youtube.com/watch?v=H_VnkjiodO4&frags=wn) and [part 2 (animations)](https://www.youtube.com/watch?v=d2kXe3QrHl8)
+
+![Counters](screenshots/r-css-animations.png)
+
+### 'npm install'
+
+Installs the packages app depends on. Requires node.js.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
