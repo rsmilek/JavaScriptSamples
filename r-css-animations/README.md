@@ -3,7 +3,7 @@
 This project implements simple web page with animations in React with help of node packages node-sass gsap.
 It's based on amazing React video tutorials [part 1 (styling)](https://www.youtube.com/watch?v=H_VnkjiodO4&frags=wn) and [part 2 (animations)](https://www.youtube.com/watch?v=d2kXe3QrHl8)
 
-![Counters](screenshots/r-css-animations.png)
+![css-animations](screenshots/r-css-animations.png)
 
 ### 'npm install'
 
