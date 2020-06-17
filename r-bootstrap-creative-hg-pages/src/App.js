@@ -4,8 +4,7 @@ import React, { Component } from "react";
 import "./loader.js";
 import $ from "jquery";
 import "jquery.easing";
-// import "magnific-popup/dist/jquery.magnific-popup.js";
-// import "magnific-popup"
+import "magnific-popup";
 
 class App extends Component {
   constructor(props) {
@@ -59,20 +58,20 @@ class App extends Component {
     $(window).scroll(navbarCollapse);
 
     // Magnific popup calls
-    // $("#portfolio").magnificPopup({
-    //   delegate: "a",
-    //   type: "image",
-    //   tLoading: "Loading image #%curr%...",
-    //   mainClass: "mfp-img-mobile",
-    //   gallery: {
-    //     enabled: true,
-    //     navigateByImgClick: true,
-    //     preload: [0, 1],
-    //   },
-    //   image: {
-    //     tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
-    //   },
-    // });
+    $("#portfolio").magnificPopup({
+      delegate: "a",
+      type: "image",
+      tLoading: "Loading image #%curr%...",
+      mainClass: "mfp-img-mobile",
+      gallery: {
+        enabled: true,
+        navigateByImgClick: true,
+        preload: [0, 1],
+      },
+      image: {
+        tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+      },
+    });
   }
   state = {};
   render() {
