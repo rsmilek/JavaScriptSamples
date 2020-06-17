@@ -9,17 +9,9 @@ import $ from "jquery";
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { store: "" };
+    this.state = {};
   }
   componentDidMount() {
-    // let _this = this;
-    // $("button").click(function () {
-    //   _this.setState({ store: Math.random() });
-    // });
-    // $("button").click(function () {
-    //   $("h1").toggleClass("red");
-    // });
-
     // Smooth scrolling using jQuery easing
     // $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
     //   if (
@@ -308,15 +300,6 @@ class App extends Component {
             <div className="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div>
           </div>
         </footer>
-
-        {/* <div>
-          <h2>{this.state.store}</h2>
-          <button>Click Me</button>
-        </div> */}
-        {/* <div>
-          <h1>jquery in React App</h1>
-          <button>Click Me</button>
-        </div> */}
       </div>
     );
   }
