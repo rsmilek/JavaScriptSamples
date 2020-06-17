@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./loader.js";
 import $ from "jquery"; // Bootstrap core JS
 import "jquery.easing"; // Third party plugin JS
 import "magnific-popup"; // Third party plugin JS
