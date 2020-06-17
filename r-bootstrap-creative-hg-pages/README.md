@@ -2,6 +2,7 @@ main.chunk.js
 
 npm i jquery.easing
 npm install magnific-popup --save
+npm i --save @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

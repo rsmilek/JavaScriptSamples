@@ -4,6 +4,13 @@ import "./loader.js";
 import $ from "jquery";
 import "jquery.easing";
 import "magnific-popup";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGem } from "@fortawesome/free-solid-svg-icons";
+import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
+import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faPhone } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import portfolio1fullsize from "./assets/img/portfolio/fullsize/1.jpg";
 import portfolio1thumbnail from "./assets/img/portfolio/thumbnails/1.jpg";
 import portfolio2fullsize from "./assets/img/portfolio/fullsize/2.jpg";
@@ -180,28 +187,36 @@ class App extends Component {
             <div className="row">
               <div className="col-lg-3 col-md-6 text-center">
                 <div className="mt-5">
-                  <i className="fas fa-4x fa-gem text-primary mb-4"></i>
+                  <i className="fa-4x text-primary mb-4">
+                    <FontAwesomeIcon icon={faGem} />
+                  </i>
                   <h3 className="h4 mb-2">Sturdy Themes</h3>
                   <p className="text-muted mb-0">Our themes are updated regularly to keep them bug free!</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-6 text-center">
                 <div className="mt-5">
-                  <i className="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                  <i className="fa-4x text-primary mb-4">
+                    <FontAwesomeIcon icon={faLaptopCode} />
+                  </i>
                   <h3 className="h4 mb-2">Up to Date</h3>
                   <p className="text-muted mb-0">All dependencies are kept current to keep things fresh.</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-6 text-center">
                 <div className="mt-5">
-                  <i className="fas fa-4x fa-globe text-primary mb-4"></i>
+                  <i className="fa-4x text-primary mb-4">
+                    <FontAwesomeIcon icon={faGlobe} />
+                  </i>
                   <h3 className="h4 mb-2">Ready to Publish</h3>
                   <p className="text-muted mb-0">You can use this design as is, or you can make changes!</p>
                 </div>
               </div>
               <div className="col-lg-3 col-md-6 text-center">
                 <div className="mt-5">
-                  <i className="fas fa-4x fa-heart text-primary mb-4"></i>
+                  <i className="fa-4x text-primary mb-4">
+                    <FontAwesomeIcon icon={faHeart} />
+                  </i>
                   <h3 className="h4 mb-2">Made with Love</h3>
                   <p className="text-muted mb-0">Is it really open source if it's not made with love?</p>
                 </div>
@@ -294,11 +309,15 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
-                <i className="fas fa-phone fa-3x mb-3 text-muted"></i>
+                <i className="fa-3x mb-3 text-muted">
+                  <FontAwesomeIcon icon={faPhone} />
+                </i>
                 <div>+1 (555) 123-4567</div>
               </div>
               <div className="col-lg-4 mr-auto text-center">
-                <i className="fas fa-envelope fa-3x mb-3 text-muted"></i>
+                <i className="fa-3x mb-3 text-muted">
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </i>
                 <a className="d-block" href="mailto:contact@yourwebsite.com">
                   contact@yourwebsite.com
                 </a>
