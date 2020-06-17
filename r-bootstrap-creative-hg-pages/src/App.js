@@ -3,12 +3,14 @@ import $ from "jquery"; // Bootstrap core JS
 import "jquery.easing"; // Third party plugin JS
 import "magnific-popup"; // Third party plugin JS
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Font Awesome icons
-import { faGem } from "@fortawesome/free-solid-svg-icons";
-import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
-import { faGlobe } from "@fortawesome/free-solid-svg-icons";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faPhone } from "@fortawesome/free-solid-svg-icons";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faGem,
+  faLaptopCode,
+  faGlobe,
+  faHeart,
+  faPhone,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import portfolio1fullsize from "./assets/img/portfolio/fullsize/1.jpg";
 import portfolio1thumbnail from "./assets/img/portfolio/thumbnails/1.jpg";
 import portfolio2fullsize from "./assets/img/portfolio/fullsize/2.jpg";
