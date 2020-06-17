@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-// import "./App.css";
 import "./loader.js";
-import $ from "jquery";
-import "jquery.easing";
-import "magnific-popup";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import $ from "jquery"; // Bootstrap core JS
+import "jquery.easing"; // Third party plugin JS
+import "magnific-popup"; // Third party plugin JS
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"; // Font Awesome icons
 import { faGem } from "@fortawesome/free-solid-svg-icons";
 import { faLaptopCode } from "@fortawesome/free-solid-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
@@ -30,6 +29,15 @@ class App extends Component {
     this.state = {};
   }
   componentDidMount() {
+    /*!
+     * Start Bootstrap - Creative v6.0.2 (https://startbootstrap.com/themes/creative)
+     * Copyright 2013-2020 Start Bootstrap
+     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+     */
+
+    /*
+     * Begin of styles.js
+     */
     // Smooth scrolling using jQuery easing
     $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
       if (
@@ -90,8 +98,13 @@ class App extends Component {
         tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
       },
     });
+    /*
+     * End of styles.js
+     */
   }
+
   state = {};
+
   render() {
     return (
       <div>
