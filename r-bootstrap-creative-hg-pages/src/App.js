@@ -3,6 +3,7 @@ import React, { Component } from "react";
 // import "./App.css";
 import "./loader.js";
 import $ from "jquery";
+import "jquery.easing";
 // import "magnific-popup/dist/jquery.magnific-popup.js";
 // import "magnific-popup"
 
@@ -13,24 +14,25 @@ class App extends Component {
   }
   componentDidMount() {
     // Smooth scrolling using jQuery easing
-    // $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
-    //   if (
-    //     location.pathname.replace(/^\//, "") == this.pathname.replace(/^\//, "") &&
-    //     location.hostname == this.hostname ) {
-    //     var target = $(this.hash);
-    //     target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
-    //     if (target.length) {
-    //       $("html, body").animate(
-    //         {
-    //           scrollTop: target.offset().top - 72,
-    //         },
-    //         1000,
-    //         "easeInOutExpo"
-    //       );
-    //       return false;
-    //     }
-    //   }
-    // });
+    $('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function () {
+      if (
+        window.location.pathname.replace(/^\//, "") === this.pathname.replace(/^\//, "") &&
+        window.location.hostname === this.hostname
+      ) {
+        var target = $(this.hash);
+        target = target.length ? target : $("[name=" + this.hash.slice(1) + "]");
+        if (target.length) {
+          $("html, body").animate(
+            {
+              scrollTop: target.offset().top - 72,
+            },
+            1000,
+            "easeInOutExpo"
+          );
+          return false;
+        }
+      }
+    });
 
     // Closes responsive menu when a scroll trigger link is clicked
     $(".js-scroll-trigger").click(function () {
