@@ -1,4 +1,5 @@
-import "./css/styles.css";
+import "./index.css";
+import "./css/styles.css"; // Core theme CSS (includes Bootstrap)
 import "magnific-popup/dist/magnific-popup.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';
@@ -6,7 +7,6 @@ import "magnific-popup/dist/magnific-popup.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import ReactDOM from "react-dom";
-// import './index.css';
 import App from "./App";
 
 import * as serviceWorker from "./serviceWorker";
