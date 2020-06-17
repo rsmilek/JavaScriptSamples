@@ -1,3 +1,4 @@
+import "./css/styles.css";
 import "magnific-popup/dist/magnific-popup.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // import $ from 'jquery';

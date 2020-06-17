@@ -1,10 +1,21 @@
 import React, { Component } from "react";
-// import logo from './logo.svg';
 // import "./App.css";
 import "./loader.js";
 import $ from "jquery";
 import "jquery.easing";
 import "magnific-popup";
+import portfolio1fullsize from "./assets/img/portfolio/fullsize/1.jpg";
+import portfolio1thumbnail from "./assets/img/portfolio/thumbnails/1.jpg";
+import portfolio2fullsize from "./assets/img/portfolio/fullsize/2.jpg";
+import portfolio2thumbnail from "./assets/img/portfolio/thumbnails/2.jpg";
+import portfolio3fullsize from "./assets/img/portfolio/fullsize/3.jpg";
+import portfolio3thumbnail from "./assets/img/portfolio/thumbnails/3.jpg";
+import portfolio4fullsize from "./assets/img/portfolio/fullsize/4.jpg";
+import portfolio4thumbnail from "./assets/img/portfolio/thumbnails/4.jpg";
+import portfolio5fullsize from "./assets/img/portfolio/fullsize/5.jpg";
+import portfolio5thumbnail from "./assets/img/portfolio/thumbnails/5.jpg";
+import portfolio6fullsize from "./assets/img/portfolio/fullsize/6.jpg";
+import portfolio6thumbnail from "./assets/img/portfolio/thumbnails/6.jpg";
 
 class App extends Component {
   constructor(props) {
@@ -203,8 +214,8 @@ class App extends Component {
           <div className="container-fluid p-0">
             <div className="row no-gutters">
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/1.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/1.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio1fullsize}>
+                  <img className="img-fluid" src={portfolio1thumbnail} alt="" />
                   <div className="portfolio-box-caption">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
@@ -212,8 +223,8 @@ class App extends Component {
                 </a>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/2.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/2.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio2fullsize}>
+                  <img className="img-fluid" src={portfolio2thumbnail} alt="" />
                   <div className="portfolio-box-caption">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
@@ -221,8 +232,8 @@ class App extends Component {
                 </a>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/3.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/3.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio3fullsize}>
+                  <img className="img-fluid" src={portfolio3thumbnail} alt="" />
                   <div className="portfolio-box-caption">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
@@ -230,8 +241,8 @@ class App extends Component {
                 </a>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/4.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/4.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio4fullsize}>
+                  <img className="img-fluid" src={portfolio4thumbnail} alt="" />
                   <div className="portfolio-box-caption">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
@@ -239,8 +250,8 @@ class App extends Component {
                 </a>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/5.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/5.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio5fullsize}>
+                  <img className="img-fluid" src={portfolio5thumbnail} alt="" />
                   <div className="portfolio-box-caption">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
@@ -248,8 +259,8 @@ class App extends Component {
                 </a>
               </div>
               <div className="col-lg-4 col-sm-6">
-                <a className="portfolio-box" href="assets/img/portfolio/fullsize/6.jpg">
-                  <img className="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="" />
+                <a className="portfolio-box" href={portfolio6fullsize}>
+                  <img className="img-fluid" src={portfolio6thumbnail} alt="" />
                   <div className="portfolio-box-caption p-3">
                     <div className="project-category text-white-50">Category</div>
                     <div className="project-name">Project Name</div>
