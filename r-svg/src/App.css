@@ -7,6 +7,40 @@
   pointer-events: none;
 }
 
+.App-logo-inline {
+  height: 40vmin;
+}
+
+.App-logo-inline:hover {
+  height: 41vmin;
+}
+
+.App-logo-inline g {
+  fill: #ff0000;
+}
+
+.App-logo-inline g > circle {
+  fill: #00ff00;
+}
+
+.App-logo-inline g > circle:hover {
+  fill: #0000ff;
+}
+
+.App-logo-inline path {
+  stroke: palegoldenrod;
+  stroke-width: 10px;
+  /* fill: none; */
+  stroke-dasharray: 30px 15px;
+  animation: orbit 1s infinite linear;
+}
+
+@keyframes orbit {
+  to {
+    stroke-dashoffset: 50px;
+  }
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
