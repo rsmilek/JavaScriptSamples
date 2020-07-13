@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { TimelineLite } from "gsap/all";
+import "./GsapTimeLineLite.css";
 
 class GsapTimeLineLite extends Component {
   constructor(props) {

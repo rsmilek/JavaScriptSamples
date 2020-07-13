@@ -30,7 +30,7 @@ export default class GsapTweenLine2 extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="container">
         <div ref={(id) => (this.myElement = id)}>GsapTweenLine</div>{" "}
       </div>
     );
