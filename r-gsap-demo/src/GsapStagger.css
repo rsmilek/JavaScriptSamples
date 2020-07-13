@@ -1,0 +1,27 @@
+.stagger-container {
+  display: flex;
+}
+.stagger-box {
+  width: 60px;
+  height: 60px;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 2px 2px;
+  background-color: black;
+}
+
+.stagger-box.green {
+  background-color: green;
+}
+
+.stagger-box.orange {
+  background-color: orange;
+}
+
+.stagger-box.gray {
+  background-color: gray;
+}
+
+.stagger-box.pink {
+  background-color: pink;
+}
