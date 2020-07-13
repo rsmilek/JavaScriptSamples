@@ -2,6 +2,17 @@ import React, { Component } from "react";
 import { TimelineLite } from "gsap/all";
 import "./GsapTimeLineComplex.css";
 
+/* 
+  We won't always get all the elements in an array so sometimes we might need to create a complex animation 
+  using different elements. Just like in the first example we store a reference in the constructor 
+  for each element and create our timeline in the componentDidMount() method:
+
+  Note how in this example we use a combination of methods. Most of the elements are stored as 
+  an instance property using this.element = null, but also we're adding a group of elements using an array.map(). 
+  Instead of using the map() callback to create tweens in the timeline (which is completely possible), 
+  we're adding them to an array that is passed in the staggerFrom() method to create the stagger effect.
+*/
+
 // icons will be animated using a stagger method
 const iconsArray = [
   { src: "https://www.greensock.com/_img/codepen/icon_robust.png", width: "83", height: "59" },
