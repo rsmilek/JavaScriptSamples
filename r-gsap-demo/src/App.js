@@ -5,6 +5,7 @@ import GsapTweenLine from "./GsapTweenLine";
 import GsapTweenLine2 from "./GsapTweenLine2";
 import GsapTimeLineLite from "./GsapTimeLineLite";
 import GsapStagger from "./GsapStagger";
+import GsapStagger2 from "./GsapStagger2";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
             <Link to="/stagger" className="navigation-item">
               Stagger
             </Link>
+            <Link to="/stagger2" className="navigation-item">
+              Stagger2
+            </Link>
           </div>
         </div>
         {/* Set up the Router */}
@@ -36,6 +40,7 @@ function App() {
         <Route path="/tweenLine2" component={GsapTweenLine2} />
         <Route path="/timeLineLite" component={GsapTimeLineLite} />
         <Route path="/stagger" component={GsapStagger} />
+        <Route path="/stagger2" component={GsapStagger2} />
       </div>
     </BrowserRouter>
   );
