@@ -17,6 +17,11 @@ export default class GsapTweenLine2 extends Component {
   }
 
   componentDidMount() {
+    /*
+      With this approach we create a paused Timeline in the constructor and add the individual tweens 
+      using the shorthand methods. Since the Timeline was paused initially, we play it after adding all the tweens to it.
+      We could also leave it paused and control it somewhere else in our app. The following example shows this technique:
+    */
     this.myTween
       .to(this.myElement, 0.5, { x: 100 })
       .to(this.myElement, 0.5, { y: 100, rotation: 180 })
