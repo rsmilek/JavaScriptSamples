@@ -58,7 +58,7 @@ class GsapStagger extends Component {
       .from(
         this.myElements3,
         {
-          duration: 2,
+          duration: 2.4,
           scale: 0.5,
           opacity: 0,
           //   delay: 0.5,
@@ -69,13 +69,13 @@ class GsapStagger extends Component {
           ease: Elastic.easeOut.config(1.2, 0.2),
           force3D: true,
         },
-        // "+=0"
-        "Start"
+        "+=0"
+        // "Start"
       )
       .from(
         this.myElements3_2,
         {
-          duration: 2,
+          duration: 2.4,
           scale: 0.5,
           opacity: 0,
           //   delay: 0.5,
@@ -92,7 +92,7 @@ class GsapStagger extends Component {
       .from(
         this.myElements,
         {
-          duration: 2,
+          duration: 2.4,
           scale: 0.5,
           opacity: 0,
           //   delay: 0.5,
