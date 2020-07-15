@@ -1,6 +1,7 @@
 .stagger-container {
   display: flex;
 }
+
 .stagger-box {
   width: 60px;
   height: 60px;
@@ -8,6 +9,14 @@
   border-radius: 10px;
   margin: 2px 2px;
   background-color: black;
+}
+
+.stagger-box-title {
+  width: 60px;
+  height: 60px;
+  font-size: 15px;
+  font-weight: 400;
+  margin: 2px 2px;
 }
 
 .stagger-box.green {
