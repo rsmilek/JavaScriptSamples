@@ -7,6 +7,7 @@ import GsapTimeLineLite from "./GsapTimeLineLite";
 import GsapStagger from "./GsapStagger";
 import GsapStagger2 from "./GsapStagger2";
 import GsapTimeLineComplex from "./GsapTimeLineComplex";
+import GsapTitleIcon from "./GsapTitleIcon";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
             <Link to="/timelinecomplex" className="navigation-item">
               TimeLineComplex
             </Link>
+            <Link to="/titleicon" className="navigation-item">
+              TitleIcon
+            </Link>
           </div>
         </div>
         {/* Set up the Router */}
@@ -46,6 +50,7 @@ function App() {
         <Route path="/stagger" component={GsapStagger} />
         <Route path="/stagger2" component={GsapStagger2} />
         <Route path="/timelinecomplex" component={GsapTimeLineComplex} />
+        <Route path="/titleicon" component={GsapTitleIcon} />
       </div>
     </BrowserRouter>
   );
