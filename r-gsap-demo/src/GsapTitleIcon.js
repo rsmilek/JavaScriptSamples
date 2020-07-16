@@ -20,9 +20,10 @@ export default class GsapTitleIcon extends Component {
   }
 
   componentDidMount() {
-    const STAGGER = 0.3;
+    const STAGGER = 0.2;
 
     this.myTween
+      // Title - Show
       .to(
         this.titleElements,
         {
@@ -36,6 +37,7 @@ export default class GsapTitleIcon extends Component {
         },
         "Start"
       )
+      // Title - Hide
       .to(
         this.titleElements,
         {
@@ -49,6 +51,7 @@ export default class GsapTitleIcon extends Component {
         },
         STAGGER
       )
+      // Icon - Show
       .from(
         this.iconElements,
         {
@@ -60,7 +63,7 @@ export default class GsapTitleIcon extends Component {
           ease: "elastic",
           force3D: true,
         },
-        STAGGER
+        STAGGER + 0.15
       )
       .play();
   }
@@ -92,7 +95,6 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[0] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[0] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
                 <div className="project-name">React</div>
               </div>
             </div>
@@ -102,7 +104,6 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[1] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[1] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
                 <div className="project-name">Angular</div>
               </div>
             </div>
@@ -112,7 +113,6 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[2] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[2] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
                 <div className="project-name">.NET</div>
               </div>
             </div>
@@ -122,7 +122,6 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[4] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[4] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
                 <div className="project-name">Visual Studio</div>
               </div>
             </div>
@@ -132,8 +131,7 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[5] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[5] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
-                <div className="project-name">National Intruments</div>
+                <div className="project-name">National Instruments</div>
               </div>
             </div>
           </div>
@@ -142,7 +140,6 @@ export default class GsapTitleIcon extends Component {
             <div className="portfolio-box">
               <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[6] = el)} />
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[6] = el)}>
-                {/* <div className="project-category text-white-50">Category</div> */}
                 <div className="project-name">Java</div>
               </div>
             </div>
