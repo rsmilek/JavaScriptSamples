@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import gsap from "gsap";
-import logo from "./logo.svg";
+import { ReactComponent as Logo } from "./logo.svg";
 import "./GsapTitleIcon.css";
 
 // const Box = ({ color, elBox }) => {
@@ -63,7 +63,7 @@ export default class GsapTitleIcon extends Component {
           ease: "elastic",
           force3D: true,
         },
-        STAGGER + 0.15
+        2 * STAGGER
       )
       .play();
   }
@@ -93,7 +93,9 @@ export default class GsapTitleIcon extends Component {
         <div className="portfolio-container">
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[0] = el)} />
+              <div className="img-fluid" ref={(el) => (this.iconElements[0] = el)}>
+                <Logo />
+              </div>
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[0] = el)}>
                 <div className="project-name">React</div>
               </div>
@@ -102,7 +104,9 @@ export default class GsapTitleIcon extends Component {
 
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[1] = el)} />
+              <div className="img-fluid" ref={(el) => (this.iconElements[1] = el)}>
+                <Logo />
+              </div>
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[1] = el)}>
                 <div className="project-name">Angular</div>
               </div>
@@ -111,7 +115,9 @@ export default class GsapTitleIcon extends Component {
 
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[2] = el)} />
+              <div className="img-fluid" ref={(el) => (this.iconElements[2] = el)}>
+                <Logo />
+              </div>
               <div className="portfolio-box-caption" ref={(el) => (this.titleElements[2] = el)}>
                 <div className="project-name">.NET</div>
               </div>
@@ -120,8 +126,10 @@ export default class GsapTitleIcon extends Component {
 
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[4] = el)} />
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[4] = el)}>
+              <div className="img-fluid" ref={(el) => (this.iconElements[3] = el)}>
+                <Logo />
+              </div>
+              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[3] = el)}>
                 <div className="project-name">Visual Studio</div>
               </div>
             </div>
@@ -129,8 +137,10 @@ export default class GsapTitleIcon extends Component {
 
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[5] = el)} />
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[5] = el)}>
+              <div className="img-fluid" ref={(el) => (this.iconElements[4] = el)}>
+                <Logo />
+              </div>
+              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[4] = el)}>
                 <div className="project-name">National Instruments</div>
               </div>
             </div>
@@ -138,8 +148,10 @@ export default class GsapTitleIcon extends Component {
 
           <div className="portfolio-wrapper">
             <div className="portfolio-box">
-              <img className="img-fluid" src={logo} alt="" ref={(el) => (this.iconElements[6] = el)} />
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[6] = el)}>
+              <div className="img-fluid" ref={(el) => (this.iconElements[5] = el)}>
+                <Logo />
+              </div>
+              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[5] = el)}>
                 <div className="project-name">Java</div>
               </div>
             </div>
