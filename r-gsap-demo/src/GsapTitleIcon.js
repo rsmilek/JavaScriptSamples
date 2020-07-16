@@ -20,14 +20,15 @@ export default class GsapTitleIcon extends Component {
   }
 
   componentDidMount() {
-    const STAGGER = 0.2;
+    const STAGGER = 0.3;
+    const DURATION = 6 * STAGGER;
 
     this.myTween
       // Title - Show
       .to(
         this.titleElements,
         {
-          duration: 2,
+          duration: DURATION,
           scale: 1,
           opacity: 1,
           delay: 0,
@@ -41,7 +42,7 @@ export default class GsapTitleIcon extends Component {
       .to(
         this.titleElements,
         {
-          duration: 2,
+          duration: DURATION,
           scale: 1,
           opacity: 0,
           delay: 0,
@@ -49,13 +50,13 @@ export default class GsapTitleIcon extends Component {
           ease: "elastic",
           force3D: true,
         },
-        STAGGER + 0.1
+        STAGGER
       )
       // Icon - Show
       .from(
         this.iconElements,
         {
-          duration: 2,
+          duration: DURATION,
           scale: 0.5,
           opacity: 0,
           delay: 0,
