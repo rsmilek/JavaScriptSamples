@@ -49,7 +49,7 @@ export default class GsapTitleIcon extends Component {
           ease: "elastic",
           force3D: true,
         },
-        STAGGER
+        STAGGER + 0.1
       )
       // Icon - Show
       .from(
