@@ -1,0 +1,13 @@
+#grid2D {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#grid2D div i {
+  background-color: red;
+  position: relative;
+  width: 130px;
+  height: 130px;
+  margin: 4px;
+  display: inline-block;
+}
