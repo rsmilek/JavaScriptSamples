@@ -1,0 +1,13 @@
+#grid {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+#grid div i {
+  background-color: #765e98;
+  position: relative;
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+  display: inline-block;
+}

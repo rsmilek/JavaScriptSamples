@@ -8,6 +8,7 @@ import GsapStagger from "./GsapStagger";
 import GsapStagger2 from "./GsapStagger2";
 import GsapTimeLineComplex from "./GsapTimeLineComplex";
 import GsapTitleIcon from "./GsapTitleIcon";
+import GsapStagger2DDistributed from "./GsapStagger2DDistributed";
 
 function App() {
   return (
@@ -40,6 +41,9 @@ function App() {
             <Link to="/titleicon" className="navigation-item">
               TitleIcon
             </Link>
+            <Link to="/stagger2ddistributed" className="navigation-item">
+              Stagger2DDistributed
+            </Link>
           </div>
         </div>
         {/* Set up the Router */}
@@ -51,6 +55,7 @@ function App() {
         <Route path="/stagger2" component={GsapStagger2} />
         <Route path="/timelinecomplex" component={GsapTimeLineComplex} />
         <Route path="/titleicon" component={GsapTitleIcon} />
+        <Route path="/stagger2ddistributed" component={GsapStagger2DDistributed} />
       </div>
     </BrowserRouter>
   );
