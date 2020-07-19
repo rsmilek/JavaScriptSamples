@@ -15,30 +15,11 @@ export default class GsapImgTransition extends Component {
   componentDidMount() {
     const DURATION = 0.5;
     const DELAY = 3;
-    this.tl
-      .to(this.imgFirst, {
-        duration: DURATION,
-        opacity: 1,
-        ease: "power4.out",
-      })
-      .to(this.imgFirst, {
-        duration: DURATION,
-        opacity: 0,
-        ease: "power4.in",
-        delay: DELAY,
-      })
-      .to(this.imgSecond, {
-        duration: DURATION,
-        opacity: 1,
-        ease: "power4.out",
-      })
-      .to(this.imgSecond, {
-        duration: DURATION,
-        opacity: 0,
-        ease: "power4.in",
-        delay: DELAY,
-      })
-      .play();
+    this.tl.to(this.imgFirst, { duration: DURATION, opacity: 1, ease: "power4.out" });
+    this.tl.to(this.imgFirst, { duration: DURATION, opacity: 0, ease: "power4.in", delay: DELAY });
+    this.tl.to(this.imgSecond, { duration: DURATION, opacity: 1, ease: "power4.out" });
+    this.tl.to(this.imgSecond, { duration: DURATION, opacity: 0, ease: "power4.in", delay: DELAY });
+    this.tl.play();
   }
 
   render() {
