@@ -7,15 +7,15 @@ import "./GsapTitleIcon.css";
 const TitleIcon = ({ items }) => {
   console.log(items);
   return (
-    <div className="portfolio-container">
+    <div className="icon-container">
       {items.map((item, index) => (
-        <div key={index} className="portfolio-wrapper">
-          <div className="portfolio-box">
+        <div key={index} className="icon-wrapper">
+          <div className="icon-box">
             <div className="img-fluid" ref={item.iconElementRef}>
               {item.icon}
             </div>
-            <div className="portfolio-box-caption" ref={item.titleElementRef}>
-              <div className="project-name">{item.title}</div>
+            <div className="icon-box-caption" ref={item.titleElementRef}>
+              <div className="icon-title">{item.title}</div>
             </div>
           </div>
         </div>
@@ -72,70 +72,70 @@ export default class GsapTitleIcon extends Component {
   render() {
     return (
       <React.Fragment>
-        <div className="portfolio-container">
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+        <div className="icon-container">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               {/* <div className="img-fluid" ref={(el) => (this.iconElements[0] = el)}> */}
               <div className="img-fluid" ref={(el) => this.setIconRef(el, 0)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[0] = el)}>
-                <div className="project-name">React</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[0] = el)}>
+                <div className="icon-title">React</div>
               </div>
             </div>
           </div>
 
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               <div className="img-fluid" ref={(el) => (this.iconElements[1] = el)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[1] = el)}>
-                <div className="project-name">Angular</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[1] = el)}>
+                <div className="icon-title">Angular</div>
               </div>
             </div>
           </div>
 
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               <div className="img-fluid" ref={(el) => (this.iconElements[2] = el)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[2] = el)}>
-                <div className="project-name">.NET</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[2] = el)}>
+                <div className="icon-title">.NET</div>
               </div>
             </div>
           </div>
 
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               <div className="img-fluid" ref={(el) => (this.iconElements[3] = el)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[3] = el)}>
-                <div className="project-name">Visual Studio</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[3] = el)}>
+                <div className="icon-title">Visual Studio</div>
               </div>
             </div>
           </div>
 
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               <div className="img-fluid" ref={(el) => (this.iconElements[4] = el)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[4] = el)}>
-                <div className="project-name">National Instruments</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[4] = el)}>
+                <div className="icon-title">National Instruments</div>
               </div>
             </div>
           </div>
 
-          <div className="portfolio-wrapper">
-            <div className="portfolio-box">
+          <div className="icon-wrapper">
+            <div className="icon-box">
               <div className="img-fluid" ref={(el) => (this.iconElements[5] = el)}>
                 <Logo />
               </div>
-              <div className="portfolio-box-caption" ref={(el) => (this.titleElements[5] = el)}>
-                <div className="project-name">Java</div>
+              <div className="icon-box-caption" ref={(el) => (this.titleElements[5] = el)}>
+                <div className="icon-title">Java</div>
               </div>
             </div>
           </div>
