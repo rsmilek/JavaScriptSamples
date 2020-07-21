@@ -1,4 +1,3 @@
-// @flow
 import React, { Component } from "react";
 import gsap from "gsap";
 import { ReactComponent as Logo } from "./logo.svg";
