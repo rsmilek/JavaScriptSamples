@@ -11,6 +11,7 @@ import GsapTitleIcon from "./GsapTitleIcon";
 import GsapStagger2D from "./GsapStagger2D";
 import GsapStagger2DDistributed from "./GsapStagger2DDistributed";
 import GsapImgTransition from "./GsapImgTransition";
+import GsapImgReveal from "./GsapImgReveal";
 
 function App() {
   return (
@@ -52,6 +53,9 @@ function App() {
             <Link to="/imgtransition" className="navigation-item">
               ImgTransition
             </Link>
+            <Link to="/imgreveal" className="navigation-item">
+              ImgTransition
+            </Link>
           </div>
         </div>
         {/* Set up the Router */}
@@ -66,6 +70,7 @@ function App() {
         <Route path="/stagger2d" component={GsapStagger2D} />
         <Route path="/stagger2ddistributed" component={GsapStagger2DDistributed} />
         <Route path="/imgtransition" component={GsapImgTransition} />
+        <Route path="/imgreveal" component={GsapImgReveal} />
       </div>
     </BrowserRouter>
   );
