@@ -1,6 +1,7 @@
 .portfolio-container /*.row - bootstrap*/ {
   display: flex;
   flex-wrap: wrap;
+  /* From original bootstrap row */
   /* margin-right: -15px;
   margin-left: -15px; */
 }
