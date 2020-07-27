@@ -1,0 +1,57 @@
+/*.row - bootstrap*/
+.iconContainer {
+    display: flex;
+    flex-wrap: wrap;
+    /* From original bootstrap row */
+    /* margin-right: -15px;
+      margin-left: -15px; */
+}
+
+.iconWrapper {
+    /* width: 150px;
+      height: 150px; */
+    width: 100px;
+    height: auto;
+}
+
+.iconBox {
+    position: relative;
+    display: block;
+}
+
+.imgFluid {
+    max-width: 100%;
+    height: auto;
+    /* Just for debugging */
+    /* opacity: 0; */
+}
+
+.iconBox .iconBoxCaption {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+    opacity: 0;
+    /* color: #fff; */
+    color: #000;
+    /* background: rgba(244, 98, 58, 0.9); */
+    transition: opacity 0.25s ease;
+    text-align: center;
+}
+
+.iconBox .iconBoxCaption .iconTitle {
+    font-size: 1rem;
+}
+
+.iconBox:hover .iconBoxCaption {
+    opacity: 1;
+}
+
+.iconBox:hover .imgFluid {
+    opacity: 0;
+}

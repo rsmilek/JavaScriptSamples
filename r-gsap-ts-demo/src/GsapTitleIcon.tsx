@@ -1,58 +1,64 @@
-import React, { Component } from "react";
+import * as React from "react";
 import gsap from "gsap";
 import { ReactComponent as Logo } from "./logo.svg";
-// import "./index.css";
-// import "./App.css";
 import "./GsapTitleIcon.css";
+import styles from "./GsapTitleIcon.module.css";
 
-const TitleIcon = ({ items }) => {
-  console.log(items);
+type TDivRef = React.RefObject<HTMLDivElement> | null;
+type TDiv = HTMLDivElement | null;
+type TIcon = { svg: JSX.Element; title: string; iconElementRef: TDivRef; titleElementRef: TDivRef };
+type TIcons = Array<TIcon>;
+type TTitleIconProps = { icon: TIcon };
+type TTitleIconListProps = { icons: TIcons };
+
+const TitleIcon = (props: TTitleIconProps) => {
   return (
-    <div className="icon-container">
-      {items.map((item, index) => (
-        <div key={index} className="icon-wrapper">
-          <div className="icon-box">
-            <div className="img-fluid" ref={item.iconElementRef}>
-              {item.icon}
-            </div>
-            <div className="icon-box-caption" ref={item.titleElementRef}>
-              <div className="icon-title">{item.title}</div>
-            </div>
-          </div>
+    <div className={styles.iconWrapper}>
+      <div className={styles.iconBox}>
+        <div className={styles.imgFluid} ref={props.icon.iconElementRef}>
+          {props.icon.svg}
         </div>
+        <div className={styles.iconBoxCaption} ref={props.icon.titleElementRef}>
+          <div className={styles.iconTitle}>{props.icon.title}</div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const TitleIconList = (props: TTitleIconListProps) => {
+  return (
+    <div className={styles.iconContainer}>
+      {props.icons.map((item, index) => (
+        <React.Fragment key={index}>
+          <TitleIcon icon={item} />
+        </React.Fragment>
       ))}
     </div>
   );
 };
 
-export default class GsapTitleIcon extends Component {
-  constructor(props) {
-    super(props);
-    this.myTween = gsap.timeline({ paused: true });
-    this.iconElements = [];
-    this.titleElements = [];
-
-    this.setIconRef = (el, i) => {
-      this.iconElements[i] = el;
-    };
-
-    this.icons2 = [
-      { icon: <Logo />, title: "React", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-      { icon: <Logo />, title: "Angular", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-      { icon: <Logo />, title: ".NET", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-      { icon: <Logo />, title: "Visual Studio", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-      { icon: <Logo />, title: "National Instruments", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-      { icon: <Logo />, title: "Java", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    ];
-  }
+export default class GsapTitleIcon extends React.Component<{}> {
+  iconElements: Array<TDiv> = [];
+  titleElements: Array<TDiv> = [];
+  setIconRef = (el: TDiv, i: number) => {
+    this.iconElements[i] = el;
+  };
+  icons2: TIcons = [
+    { svg: <Logo />, title: "React", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: "Angular", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: ".NET", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: "Visual Studio", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: "National Instruments", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: "Java", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+  ];
+  myTween = gsap.timeline({ paused: true });
 
   componentDidMount() {
     const STAGGER = 0.3;
     const DURATION = 6 * STAGGER;
-
-    const iconElements2Current = this.icons2.map((item) => item.iconElementRef.current);
-    const titleElements2Current = this.icons2.map((item) => item.titleElementRef.current);
-
+    const iconElements2Current = this.icons2.map((item) => item.iconElementRef!.current); // ! - Non-null assertion operator
+    const titleElements2Current = this.icons2.map((item) => item.titleElementRef!.current);
     this.myTween
       // Title - Show
       .to(this.titleElements, { duration: DURATION, scale: 1, opacity: 1, delay: 0, stagger: STAGGER, ease: "elastic", force3D: true }, "Start")
@@ -142,7 +148,7 @@ export default class GsapTitleIcon extends Component {
           </div>
         </div>
 
-        <TitleIcon items={this.icons2} />
+        <TitleIconList icons={this.icons2} />
       </React.Fragment>
     );
   }
