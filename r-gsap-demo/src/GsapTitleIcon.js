@@ -30,7 +30,7 @@ const TitleIconList = (props: TTitleIconListProps) => {
     <div className={styles.iconContainer}>
       {props.icons.map((item, index) => (
         <React.Fragment key={index}>
-          <TitleIcon idx={index} icon={item} />
+          <TitleIcon icon={item} />
         </React.Fragment>
       ))}
     </div>
