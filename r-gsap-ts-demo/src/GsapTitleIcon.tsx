@@ -11,25 +11,25 @@ type TIcons = Array<TIcon>;
 type TTitleIconProps = { icon: TIcon };
 type TTitleIconListProps = { icons: TIcons };
 
-const TitleIcon = (props: TTitleIconProps) => {
+const TitleIcon = ({ icon }: TTitleIconProps) => {
   return (
     <div className={styles.iconWrapper}>
       <div className={styles.iconBox}>
-        <div className={styles.imgFluid} ref={props.icon.iconElementRef}>
-          {props.icon.svg}
+        <div className={styles.imgFluid} ref={icon.iconElementRef}>
+          {icon.svg}
         </div>
-        <div className={styles.iconBoxCaption} ref={props.icon.titleElementRef}>
-          <div className={styles.iconTitle}>{props.icon.title}</div>
+        <div className={styles.iconBoxCaption} ref={icon.titleElementRef}>
+          <div className={styles.iconTitle}>{icon.title}</div>
         </div>
       </div>
     </div>
   );
 };
 
-const TitleIconList = (props: TTitleIconListProps) => {
+const TitleIconList = ({ icons }: TTitleIconListProps) => {
   return (
     <div className={styles.iconContainer}>
-      {props.icons.map((item, index) => (
+      {icons.map((item, index) => (
         <React.Fragment key={index}>
           <TitleIcon icon={item} />
         </React.Fragment>
