@@ -1,10 +1,10 @@
-import * as React from "react";
+import React, { Component, Fragment, RefObject, createRef } from "react";
 import gsap from "gsap";
 import { ReactComponent as Logo } from "./logo.svg";
 import "./GsapTitleIcon.css";
 import styles from "./GsapTitleIcon.module.css";
 
-type TDivRef = React.RefObject<HTMLDivElement> | null;
+type TDivRef = RefObject<HTMLDivElement> | null;
 type TDiv = HTMLDivElement | null;
 type TIcon = { svg: JSX.Element; title: string; iconElementRef: TDivRef; titleElementRef: TDivRef };
 type TIcons = Array<TIcon>;
@@ -30,27 +30,27 @@ const TitleIconList = ({ icons }: TTitleIconListProps) => {
   return (
     <div className={styles.iconContainer}>
       {icons.map((item, index) => (
-        <React.Fragment key={index}>
+        <Fragment key={index}>
           <TitleIcon icon={item} />
-        </React.Fragment>
+        </Fragment>
       ))}
     </div>
   );
 };
 
-export default class GsapTitleIcon extends React.Component<{}> {
+export default class GsapTitleIcon extends Component<{}> {
   iconElements: Array<TDiv> = [];
   titleElements: Array<TDiv> = [];
   setIconRef = (el: TDiv, i: number) => {
     this.iconElements[i] = el;
   };
   icons2: TIcons = [
-    { svg: <Logo />, title: "React", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    { svg: <Logo />, title: "Angular", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    { svg: <Logo />, title: ".NET", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    { svg: <Logo />, title: "Visual Studio", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    { svg: <Logo />, title: "National Instruments", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
-    { svg: <Logo />, title: "Java", iconElementRef: React.createRef(), titleElementRef: React.createRef() },
+    { svg: <Logo />, title: "React", iconElementRef: createRef(), titleElementRef: createRef() },
+    { svg: <Logo />, title: "Angular", iconElementRef: createRef(), titleElementRef: createRef() },
+    { svg: <Logo />, title: ".NET", iconElementRef: createRef(), titleElementRef: createRef() },
+    { svg: <Logo />, title: "Visual Studio", iconElementRef: createRef(), titleElementRef: createRef() },
+    { svg: <Logo />, title: "National Instruments", iconElementRef: createRef(), titleElementRef: createRef() },
+    { svg: <Logo />, title: "Java", iconElementRef: createRef(), titleElementRef: createRef() },
   ];
   myTween = gsap.timeline({ paused: true });
 
@@ -78,7 +78,7 @@ export default class GsapTitleIcon extends React.Component<{}> {
 
   render() {
     return (
-      <React.Fragment>
+      <Fragment>
         <div className="icon-container">
           <div className="icon-wrapper">
             <div className="icon-box">
@@ -149,7 +149,7 @@ export default class GsapTitleIcon extends React.Component<{}> {
         </div>
 
         <TitleIconList icons={this.icons2} />
-      </React.Fragment>
+      </Fragment>
     );
   }
 }
