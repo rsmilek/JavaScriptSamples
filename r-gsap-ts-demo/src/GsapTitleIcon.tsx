@@ -1,4 +1,4 @@
-import React, { Component, Fragment, RefObject, createRef } from "react";
+import React, { Component, FunctionComponent, Fragment, RefObject, createRef } from "react";
 import gsap from "gsap";
 import { ReactComponent as Logo } from "./logo.svg";
 import "./GsapTitleIcon.css";
@@ -11,7 +11,8 @@ type TIcons = Array<TIcon>;
 type TTitleIconProps = { icon: TIcon };
 type TTitleIconListProps = { icons: TIcons };
 
-const TitleIcon = ({ icon }: TTitleIconProps) => {
+// We can use children even though we haven't defined them in our TTitleIconProps
+const TitleIcon: FunctionComponent<TTitleIconProps> = ({ icon }) => {
   return (
     <div className={styles.iconWrapper}>
       <div className={styles.iconBox}>
@@ -26,7 +27,7 @@ const TitleIcon = ({ icon }: TTitleIconProps) => {
   );
 };
 
-const TitleIconList = ({ icons }: TTitleIconListProps) => {
+const TitleIconList: FunctionComponent<TTitleIconListProps> = ({ icons }) => {
   return (
     <div className={styles.iconContainer}>
       {icons.map((item, index) => (
@@ -39,8 +40,8 @@ const TitleIconList = ({ icons }: TTitleIconListProps) => {
 };
 
 export default class GsapTitleIcon extends Component<{}> {
-  iconElements: Array<TDiv> = [];
-  titleElements: Array<TDiv> = [];
+  iconElements: TDiv[] = [];
+  titleElements: TDiv[] = [];
   setIconRef = (el: TDiv, i: number) => {
     this.iconElements[i] = el;
   };
@@ -57,8 +58,8 @@ export default class GsapTitleIcon extends Component<{}> {
   componentDidMount() {
     const STAGGER = 0.3;
     const DURATION = 6 * STAGGER;
-    const iconElements2Current = this.icons2.map((item) => item.iconElementRef!.current); // ! - Non-null assertion operator
-    const titleElements2Current = this.icons2.map((item) => item.titleElementRef!.current);
+    const iconElements2Current: TDiv[] = this.icons2.map((item) => item.iconElementRef!.current); // ! - Non-null assertion operator
+    const titleElements2Current: TDiv[] = this.icons2.map((item) => item.titleElementRef!.current);
     this.myTween
       // Title - Show
       .to(this.titleElements, { duration: DURATION, scale: 1, opacity: 1, delay: 0, stagger: STAGGER, ease: "elastic", force3D: true }, "Start")
