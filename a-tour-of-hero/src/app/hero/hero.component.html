@@ -1,0 +1,11 @@
+<h2>{{hero.name}}</h2>
+<div><span>ID: </span>{{hero.id}}</div>
+<!-- 'uppercase' in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
+<div><span>Name: </span>{{hero.name | uppercase}} Details</div>
+
+<div>
+    <label>
+        <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
+        <input [(ngModel)]="hero.name" placeholder="Hero name" />
+    </label>
+</div>
