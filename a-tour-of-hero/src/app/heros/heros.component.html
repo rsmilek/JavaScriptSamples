@@ -1,11 +1,23 @@
-<h2>{{hero.name}}</h2>
-<div><span>ID: </span>{{hero.id}}</div>
-<!-- 'uppercase' in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
-<div><span>Name: </span>{{hero.name | uppercase}} Details</div>
+<h2>My Heros</h2>
+<ul class="heroes">
+    <!-- The *ngFor is Angular's repeater directive. -->
+    <!-- This is an example of Angular's event binding syntax. The parentheses around click tell Angular to listen for the 
+         <li> element's click event. When the user clicks in the <li>, Angular executes the onSelect(hero) expression. -->
+    <!-- When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. -->
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
 
-<div>
-    <label>
-        <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
-        <input [(ngModel)]="hero.name" placeholder="Hero name" />
-    </label>
+<!-- When selectedHero is undefined, the ngIf removes the hero detail from the DOM -->
+<div *ngIf="selectedHero">
+    <!-- 'uppercase' in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
+    <h2>{{selectedHero.name | uppercase}} Details</h2>
+    <div><span>id :</span>{{selectedHero.id}}</div>
+    <div>
+        <label>name:
+            <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
+            <input [(ngModel)]="selectedHero.name" placeholder="name" />
+        </label>
+    </div>
 </div>
