@@ -6,7 +6,7 @@ import { Hero } from '../hero';
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']
 })
-export class HeroComponent implements OnInit {
+export class HerosComponent implements OnInit {
 
   hero: Hero = {
     id: 1,
