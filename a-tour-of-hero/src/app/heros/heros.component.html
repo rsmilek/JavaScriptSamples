@@ -9,15 +9,8 @@
     </li>
 </ul>
 
-<!-- When selectedHero is undefined, the ngIf removes the hero detail from the DOM -->
-<div *ngIf="selectedHero">
-    <!-- 'uppercase' in the interpolation binding, right after the pipe operator ( | ), activates the built-in UppercasePipe. -->
-    <h2>{{selectedHero.name | uppercase}} Details</h2>
-    <div><span>id :</span>{{selectedHero.id}}</div>
-    <div>
-        <label>name:
-            <!-- [(ngModel)] is Angular's two-way data binding syntax. -->
-            <input [(ngModel)]="selectedHero.name" placeholder="name" />
-        </label>
-    </div>
-</div>
+<!-- Binds the HeroesComponent.selectedHero to the element's hero property 
+     [hero]="selectedHero" is an Angular property binding. -->
+<!-- Now when the user clicks a hero in the list, the selectedHero changes. 
+     When the selectedHero changes, the property binding updates hero and the HeroDetailComponent displays the new hero. -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
