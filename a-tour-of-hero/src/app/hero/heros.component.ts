@@ -3,8 +3,8 @@ import { Hero } from '../hero';
 
 @Component({
   selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.scss']
+  templateUrl: './heros.component.html',
+  styleUrls: ['./heros.component.scss']
 })
 export class HerosComponent implements OnInit {
 
