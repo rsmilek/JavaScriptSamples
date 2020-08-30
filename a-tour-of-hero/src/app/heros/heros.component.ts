@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
-import { HEROS } from '../mock-heros';
+import { HeroService } from '../hero.service';
 
 // The two components will have a parent/child relationship. 
 // The parent HeroesComponent will control the child HeroDetailComponent by sending it
@@ -11,12 +11,22 @@ import { HEROS } from '../mock-heros';
   styleUrls: ['./heros.component.scss']
 })
 export class HerosComponent implements OnInit {
-  heroes: Hero[] = HEROS;
+
+  heroes: Hero[];
   selectedHero: Hero;
 
-  constructor() { }
+  // Inject the HeroService: 
+  // 1. Add a private heroService parameter of type HeroService to the constructor.
+  // 2. The parameter simultaneously defines a private heroService property and identifies it as a HeroService injection site.
+  // 3. When Angular creates a HeroesComponent, the Dependency Injection system sets the heroService parameter to the singleton instance of HeroService.
+  // 4. Subscribe in HeroesComponent. The HeroService.getHeroes method used to return a Hero[]. Now it returns an Observable<Hero[]>.
+  constructor(private heroService: HeroService) { }
 
+  // 4. Reserve the constructor for simple initialization such as wiring constructor parameters to properties. The constructor shouldn't do anything.
+  // It certainly shouldn't call a function that makes HTTP requests to a remote server as a real data service would.
   ngOnInit(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
 
   onSelect(hero: Hero): void {
