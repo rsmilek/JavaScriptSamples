@@ -9,8 +9,8 @@ import { MessageService } from '../message.service';
 // 2. Sends and display a message each time the user clicks on a hero, showing a history of the user's selections.
 @Component({
   selector: 'app-hero',
-  templateUrl: './heros.component.html',
-  styleUrls: ['./heros.component.scss']
+  templateUrl: './heroes.component.html',
+  styleUrls: ['./heroes.component.scss']
 })
 export class HerosComponent implements OnInit {
 
