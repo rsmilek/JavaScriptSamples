@@ -12,7 +12,7 @@ import { MessageService } from '../message.service';
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.scss']
 })
-export class HerosComponent implements OnInit {
+export class HeroesComponent implements OnInit {
 
   selectedHero: Hero;
   heroes: Hero[];
