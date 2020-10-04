@@ -1,0 +1,16 @@
+<h2>My Heros</h2>
+<ul class="heroes">
+    <!-- The *ngFor is Angular's repeater directive. -->
+    <!-- This is an example of Angular's event binding syntax. The parentheses around click tell Angular to listen for the 
+         <li> element's click event. When the user clicks in the <li>, Angular executes the onSelect(hero) expression. -->
+    <!-- When the current row hero is the same as the selectedHero, Angular adds the selected CSS class. -->
+    <li *ngFor="let hero of heroes" [class.selected]="hero === selectedHero" (click)="onSelect(hero)">
+        <span class="badge">{{hero.id}}</span> {{hero.name}}
+    </li>
+</ul>
+
+<!-- Binds the HeroesComponent.selectedHero to the element's hero property 
+     [hero]="selectedHero" is an Angular property binding. -->
+<!-- Now when the user clicks a hero in the list, the selectedHero changes. 
+     When the selectedHero changes, the property binding updates hero and the HeroDetailComponent displays the new hero. -->
+<app-hero-detail [hero]="selectedHero"></app-hero-detail>
