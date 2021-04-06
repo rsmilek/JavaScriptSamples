@@ -1,3 +1,7 @@
+const INTERVALS = ["Day", "Month", "Year"];
+const INTERVAL_DEFAULT_INDEX = 0;
+const INTERVAL_DEFAULT_CHILD = INTERVAL_DEFAULT_INDEX + 1;
+
 Chart.defaults.global.legend.display = true;
 Chart.defaults.global.tooltips.enabled = true;
 
@@ -31,15 +35,19 @@ var myChart = new Chart($("#myChart"), {
     }
 });
 
-$("#intevals li a").click(function (e) {
+$("#intevals li:nth-child(" + INTERVAL_DEFAULT_INDEX + 1 + ")").addClass("active");
+
+$("#intevals li a").on("click", function (e) {
     e.preventDefault();
 
     $("#intevals").children("li.page-item").removeClass("active");
 
     $(this).parent("li.page-item").addClass("active");
 
-    switch ($(this).text()) {
-        case "Month":
+    var idx = INTERVALS.indexOf($(this).text());
+
+    switch (idx) {
+        case 1:
             myChart.data = data2;
             break;
         default:
