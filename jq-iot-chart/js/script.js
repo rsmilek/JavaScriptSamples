@@ -15,7 +15,7 @@ Chart.defaults.global.tooltips.enabled = true;
 
 var myChart = {};
 
-CreateChart = () => {
+function CreateChart() {
     myChart = new Chart($("#myChart"), {
         type: 'polarArea',
         data: CHART_DATA_DEFAULT,
@@ -40,7 +40,7 @@ CreateChart = () => {
     });
 }
 
-SetChartData = (index) => {
+function SetChartData(index) {
     switch (index) {
         case 0:
             myChart.data.datasets[0].data = [31.60, 36.57, 23.49, 23.52, 20.34, 21.99, 35.31, 19.37];
@@ -65,7 +65,7 @@ $("#intevals li a").on("click", function (e) {
     SetChartData(INTERVALS.indexOf($(this).text()));
 });
 
-$(document).ready(function () {
+$(function () {
     // Activate default interval
     $("#intevals li:nth-child(" + INTERVAL_DEFAULT_INDEX + 1 + ")").addClass("active");
     // Set chart data for active interval
