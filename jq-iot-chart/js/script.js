@@ -17,8 +17,7 @@ var data2 = {
     }]
 };
 
-var ctx = $("#myChart");
-var myChart = new Chart(ctx, {
+var myChart = new Chart($("#myChart"), {
     type: 'polarArea',
     data: data,
     options: {
