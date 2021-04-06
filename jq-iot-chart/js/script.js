@@ -34,10 +34,12 @@ var myChart = new Chart(ctx, {
 
 $("#intevals li a").click(function (e) {
     e.preventDefault();
-    let tag = $(this);
-    console.log(`Item  ${tag.text()} clicked!`);
 
-    switch (tag.text()) {
+    $("#intevals").children("li.page-item").removeClass("active");
+
+    $(this).parent("li.page-item").addClass("active");
+
+    switch ($(this).text()) {
         case "Month":
             myChart.data = data2;
             break;
@@ -56,31 +58,3 @@ $("#intevals li a").click(function (e) {
 
     myChart.update();
 });
-
-
-
-
-
-
-
-
-// $('ul.pagination li a').on('click', function (e) {
-//     e.preventDefault();
-//     var tag = $(this);
-//     alert(" click on " + tag.text());
-// });
-
-// $(document).ready(
-//     OnMyButtonClick(),
-//     OnItemClick()
-// );
-
-// function OnMyButtonClick() {
-//     $("#myButton").on("click", function () {
-//         console.log("Pokus");
-//     });
-// }
-
-// $(document).on("ready",
-//     OnMyButtonClick()
-// );
