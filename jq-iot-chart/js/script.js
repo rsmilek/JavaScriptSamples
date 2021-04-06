@@ -2,9 +2,6 @@ const INTERVALS = ["Day", "Month", "Year"];
 const INTERVAL_DEFAULT_INDEX = 0;
 const INTERVAL_DEFAULT_CHILD = INTERVAL_DEFAULT_INDEX + 1;
 
-Chart.defaults.global.legend.display = true;
-Chart.defaults.global.tooltips.enabled = true;
-
 const CHART_DATA_DEFAULT = {
     labels: ["Brasil", "Argentina", "Chile", "México", "Peru", "Paraguai", "Bolívia", "Haiti"],
     datasets: [{
@@ -13,30 +10,38 @@ const CHART_DATA_DEFAULT = {
     }]
 };
 
-var myChart = new Chart($("#myChart"), {
-    type: 'polarArea',
-    data: CHART_DATA_DEFAULT,
-    options: {
-        responsive: true,
-        scale: {
-            ticks: {
-                beginAtZero: true
+Chart.defaults.global.legend.display = true;
+Chart.defaults.global.tooltips.enabled = true;
+
+var myChart = {};
+
+CreateChart = () => {
+    myChart = new Chart($("#myChart"), {
+        type: 'polarArea',
+        data: CHART_DATA_DEFAULT,
+        options: {
+            responsive: true,
+            scale: {
+                ticks: {
+                    beginAtZero: true
+                },
+                reverse: false
             },
-            reverse: false
+            title: {
+                display: true,
+                text: "My Title",
+                fontSize: 20
+            },
+            legend: {
+                display: true,
+                position: "right"
+            },
         }
-    }
-});
+    });
+}
 
-$("#intevals li:nth-child(" + INTERVAL_DEFAULT_INDEX + 1 + ")").addClass("active");
-
-$("#intevals li a").on("click", function (e) {
-    e.preventDefault();
-
-    $("#intevals").children("li.page-item").removeClass("active");
-    $(this).parent("li.page-item").addClass("active");
-
-    var idx = INTERVALS.indexOf($(this).text());
-    switch (idx) {
+SetChartData = (index) => {
+    switch (index) {
         case 0:
             myChart.data.datasets[0].data = [31.60, 36.57, 23.49, 23.52, 20.34, 21.99, 35.31, 19.37];
             break;
@@ -47,6 +52,23 @@ $("#intevals li a").on("click", function (e) {
             myChart.data.datasets[0].data = [46.90, 44.95, 26.83, 29.59, 24.58, 26.45, 46.94, 22.96];
             break;
     }
+    myChart.update(); // Repaint chart with new data
+}
 
-    myChart.update();
+// Active interval handler
+$("#intevals li a").on("click", function (e) {
+    e.preventDefault();
+    // Activate selected interval
+    $("#intevals").children("li.page-item").removeClass("active");
+    $(this).parent("li.page-item").addClass("active");
+    // Set chart data for selected interval
+    SetChartData(INTERVALS.indexOf($(this).text()));
+});
+
+$(document).ready(function () {
+    // Activate default interval
+    $("#intevals li:nth-child(" + INTERVAL_DEFAULT_INDEX + 1 + ")").addClass("active");
+    // Set chart data for active interval
+    CreateChart();
+    SetChartData(INTERVAL_DEFAULT_INDEX);
 });
