@@ -45,13 +45,13 @@ export class PokemonDetailComponent implements OnDestroy {
 
   @HostListener('window:keyup', ['$event'])
   keyEvent(event: KeyboardEvent) {
-    if (event.key === KeyboardKeys.ArrowRight) {
+    if (event.key === KeyboardKeys.ArrowLeft) {
       const paramId = +this.activatedRoute.snapshot.params.id;
       const id = paramId === 1 ? 151 : paramId - 1;
       this.router.navigateByUrl(`/pokemon/${id}`);
     }
 
-    if (event.key === KeyboardKeys.ArrowLeft) {
+    if (event.key === KeyboardKeys.ArrowRight) {
       const paramId = +this.activatedRoute.snapshot.params.id;
       const id = paramId < 151 ? paramId + 1 : 1;
       this.router.navigateByUrl(`/pokemon/${id}`);

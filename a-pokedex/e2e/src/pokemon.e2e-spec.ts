@@ -27,13 +27,30 @@ describe('ng-pokedex pokemon view', () => {
 
   it('should open and allow arrow keys to navigate between pokemon', () => {
     page.navigateTo();
-    page.getFirstPokemonCardElement().click();
-    page.selectNextKey();
 
+    // Open the modal
+    page.getFirstPokemonCardElement().click();
+
+    // Trigger the right arrow, check to make sure the view updated with a different Pokédex
+    page.selectNextKey();
     expect(page.getOpenModalHeadingElement().getText()).toBe('Ivysaur #2');
 
+    // Trigger the left arrow twice
     page.selectPrevKey();
     page.selectPrevKey();
+    // Check to make sure the view updated with a different Pokédex
     expect(page.getOpenModalHeadingElement().getText()).toBe('Mew #151');
+  });
+
+  it('should open/close(escape) pokemon detail dialog', () => {
+    page.navigateTo();
+
+    // Check if modal dialog is open
+    page.getFirstPokemonCardElement().click();
+    expect(page.getOpenModalElement().isPresent()).toBeTruthy();
+
+    // Check if modal dialog is open
+    page.selectEscapeKey();
+    expect(page.getOpenModalElement().isPresent()).toBeFalsy();
   });
 });
