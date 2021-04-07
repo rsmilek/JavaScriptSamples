@@ -1,6 +1,5 @@
 const INTERVALS = ["Day", "Month", "Year"];
 const INTERVAL_DEFAULT_INDEX = 0;
-const INTERVAL_DEFAULT_CHILD = INTERVAL_DEFAULT_INDEX + 1;
 
 const CHART_DATA_DEFAULT = {
     labels: ["Brasil", "Argentina", "Chile", "México", "Peru", "Paraguai", "Bolívia", "Haiti"],
@@ -14,6 +13,26 @@ Chart.defaults.global.legend.display = true;
 Chart.defaults.global.tooltips.enabled = true;
 
 var myChart = {};
+
+function GenerateIntervals() {
+    // Remove existing intervals from DOM
+    $("#intervals").html("");
+    // Generate intervals
+    for (let index = 0; index < INTERVALS.length; index++) {
+        const interval = INTERVALS[index];
+        var intervalEl = `<li class='page-item'><a id='${interval}' class='page-link' href='#${interval}'>${interval}</a></li>`;
+        $("#intervals").append(intervalEl);
+    }
+}
+
+function OnIntervalClick(event, jqElement) {
+    event?.preventDefault();
+    // Activate selected interval
+    $("#intervals").children("li.page-item").removeClass("active");
+    jqElement.parent("li.page-item").addClass("active");
+    // Set chart data for selected interval
+    SetChartData(INTERVALS.indexOf(jqElement.text()));
+};
 
 function CreateChart() {
     myChart = new Chart($("#myChart"), {
@@ -55,20 +74,15 @@ function SetChartData(index) {
     myChart.update(); // Repaint chart with new data
 }
 
-// Active interval handler
-$("#intevals li a").on("click", function (e) {
-    e.preventDefault();
-    // Activate selected interval
-    $("#intevals").children("li.page-item").removeClass("active");
-    $(this).parent("li.page-item").addClass("active");
-    // Set chart data for selected interval
-    SetChartData(INTERVALS.indexOf($(this).text()));
+// DOCUMENT READY
+$(function () {
+    GenerateIntervals();
+    CreateChart();
+    // Initialize state of Intervals & Chart 
+    OnIntervalClick(null, $(`#${INTERVALS[INTERVAL_DEFAULT_INDEX]}`));
+    // Interval click handler
+    $("#intervals li a").on("click", function (event) {
+        OnIntervalClick(event, $(this));
+    });
 });
 
-$(function () {
-    // Activate default interval
-    $("#intevals li:nth-child(" + INTERVAL_DEFAULT_INDEX + 1 + ")").addClass("active");
-    // Set chart data for active interval
-    CreateChart();
-    SetChartData(INTERVAL_DEFAULT_INDEX);
-});
