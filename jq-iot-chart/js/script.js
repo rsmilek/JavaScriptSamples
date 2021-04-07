@@ -70,6 +70,9 @@ function SetChartData(index) {
         case 2:
             myChart.data.datasets[0].data = [46.90, 44.95, 26.83, 29.59, 24.58, 26.45, 46.94, 22.96];
             break;
+        default:
+            console.log(`ERROR '${arguments.callee.name}': Invalid index value = ${index}!`);
+            break;
     }
     myChart.update(); // Repaint chart with new data
 }
