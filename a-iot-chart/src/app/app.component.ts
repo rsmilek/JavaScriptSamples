@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { ChartDataSets, ChartOptions } from 'chart.js';
-import { Color, Label } from 'ng2-charts';
+import { Chart } from 'chart.js';
 
 import { DATA_DAY } from "../data/seriesDay";
 import { DATA_WEEK } from "../data/seriesWeek";
@@ -18,37 +17,21 @@ const INTERVALS: string[] = [INTERVAL_DEFAULT, 'Month', 'Year'];
 export class AppComponent {
   title = 'a-iot-chart';
 
-  intervals: string[] = INTERVALS;
+  private data = {
+    datasets: [
+      {
+        label: "Outdoor",
+        fill: false,
+        lineTension: 0,
+        backgroundColor: "rgba(75,192,192,1)",
+        borderColor: "rgba(75,192,192,1)",
+        borderWidth: 2,
+        data: []
+      }
+    ]
+  };
 
-  activeIdx: number = INTERVALS.indexOf(INTERVAL_DEFAULT);
-
-  chart: Chart;
-
-  itemChanged(index: number) {
-    console.log(`Item ${index} clicked!`);
-    this.activeIdx = index;
-
-    switch (this.activeIdx) {
-      case 1:
-        this.lineChartData = [ { data: [0, 1, 2, 3, 4, 5, 6], label: 'Series B' } ];        
-        break;
-
-      case 2:
-        this.lineChartData = [ { data: [6, 5, 4, 3, 2, 1, 0], label: 'Series C' } ];
-        break;
-      
-      default:
-        this.lineChartData = [ { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' } ];
-        break;
-    }
-  }
-
-
-  public lineChartData: ChartDataSets[] = [ { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' } ];
-
-  public lineChartLabels: Label[] = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-
-  public lineChartOptions = {
+  private options = {
     responsive: true,
     scales: {
       xAxes: []
@@ -62,26 +45,58 @@ export class AppComponent {
       display: true,
       position: "bottom"
     },
-   animation: {
+    animation: {
       duration: 0
     }
   };
 
-  public lineChartColors: Color[] = [
-    {
-      // borderColor: 'black',
-      // backgroundColor: 'rgba(255,0,0,0.3)',
-      borderColor: "rgba(75,192,192,1)",
-      backgroundColor: "rgba(75,192,192,1)",
-    },
-  ];
+  private myChart: Chart;
 
-  public lineChartLegend: boolean = true;
-  public lineChartType: string = 'line';
-  public lineChartPlugins = [];
+  public intervals: string[] = INTERVALS;
+  public activeIdx: number = INTERVALS.indexOf(INTERVAL_DEFAULT);
+
+  private CreateChart() {
+    this.myChart = new Chart("myChart", {
+      type: "line",
+      data: this.data,
+      options: this.options
+    });
+  }
+
+  public ItemChanged(index: number) {
+    this.activeIdx = index;
+
+    switch (this.activeIdx) {
+      case 0:
+        this.data.datasets[0].data = DATA_DAY.series;
+        this.options.scales.xAxes[0] = DATA_DAY.xAxes;
+        break;
+
+      case 1:
+        this.data.datasets[0].data = DATA_WEEK.series;
+        this.options.scales.xAxes[0] = DATA_WEEK.xAxes;
+        break;
+
+      case 2:
+        this.data.datasets[0].data = DATA_MONTH.series;
+        this.options.scales.xAxes[0] = DATA_MONTH.xAxes;
+        break;
+      
+      default:
+        console.log(`ERROR '${arguments.callee.name}': Invalid index value = ${index}!`);
+        break;
+    }
+
+    this.myChart.data = this.data;
+    this.myChart.options = this.options;
+
+    this.myChart.update();
+  }
 
   constructor() { }
 
-  ngOnInit() { }
-
+  ngOnInit() { 
+    this.CreateChart();
+    this.ItemChanged(this.activeIdx);
+  }
 }
