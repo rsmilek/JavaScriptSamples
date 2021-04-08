@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { Chart } from 'chart.js';
 
@@ -14,7 +14,7 @@ const INTERVALS: string[] = [INTERVAL_DEFAULT, 'Month', 'Year'];
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'a-iot-chart';
 
   private data = {
