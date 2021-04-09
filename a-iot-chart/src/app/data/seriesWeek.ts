@@ -1,4 +1,7 @@
-const SERIES_WEEK = [
+import { IChartData } from '../abstractions/IChartData';
+import { IChartTimeDataPoint } from '../abstractions/IChartTimeDataPoint';
+
+const SERIES_WEEK: IChartTimeDataPoint[] = [
   {
     t: "2020-02-01T00:00",
     y: 1
@@ -29,7 +32,7 @@ const SERIES_WEEK = [
   }
 ];
 
-const XAXES = {
+const XAXES: any = {
   type: "time",
   time: {
     unit: "day",
@@ -40,7 +43,7 @@ const XAXES = {
   }
 };
 
-export const DATA_WEEK = {
+export const DATA_WEEK: IChartData = {
   series: SERIES_WEEK,
   xAxes: XAXES
 };

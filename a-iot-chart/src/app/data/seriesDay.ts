@@ -1,4 +1,7 @@
-const SERIES_DAY = [
+import { IChartData } from '../abstractions/IChartData';
+import { IChartTimeDataPoint } from '../abstractions/IChartTimeDataPoint';
+
+const SERIES_DAY: IChartTimeDataPoint[] = [
   {
     t: "2020-02-12T00:00",
     y: 2.0
@@ -101,7 +104,7 @@ const SERIES_DAY = [
   }
 ];
 
-const XAXES = {
+const XAXES: any = {
   type: "time",
   time: {
     unit: "hour",
@@ -112,7 +115,7 @@ const XAXES = {
   }
 };
 
-export const DATA_DAY = {
+export const DATA_DAY: IChartData = {
   series: SERIES_DAY,
   xAxes: XAXES
 };

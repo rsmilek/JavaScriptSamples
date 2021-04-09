@@ -3,6 +3,8 @@ import { DataService } from '../services/data.service';
 
 import { Chart } from 'chart.js';
 
+import { IChartData } from '../abstractions/IChartData';
+
 const DATA = {
   datasets: [
     {
@@ -52,16 +54,17 @@ export class IotChartComponent implements OnInit {
     this.createChart();
 
     this.dataService.chartData.subscribe(value => {
-      let chartData = value;
-
+      let chartData: IChartData = value;
+      // For updating of chart.js data see: https://www.chartjs.org/docs/latest/developers/updates.html
+      // Clone chart's data
       let dataNew = {...DATA};
       dataNew.datasets[0].data = chartData.series;
       this.myChart.data = dataNew;
-
+      // Clone chart's options
       let optionsNew = {...OPTIONS};
       optionsNew.scales.xAxes[0] = chartData.xAxes;
       this.myChart.options = optionsNew;
-
+      // Update chart
       this.myChart.update();
     });
   }

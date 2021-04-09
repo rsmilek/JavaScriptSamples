@@ -1,6 +1,7 @@
+import { IChartTimeDataPoint } from '../abstractions/IChartTimeDataPoint';
 
 export interface IChartData {
-    series: any,
+    series: IChartTimeDataPoint[],
     xAxes: any
   }
   

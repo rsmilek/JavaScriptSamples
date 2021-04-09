@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 import { IChartData } from '../abstractions/IChartData';
+import { IChartTimeDataPoint } from '../abstractions/IChartTimeDataPoint';
 
 import { DATA_DAY } from '../data/seriesDay';
 import { DATA_WEEK } from '../data/seriesWeek';
@@ -11,10 +12,10 @@ import { DATA_MONTH } from '../data/seriesMonth';
 export const INTERVAL_INDEX_DEFAULT = 0;
 
 class ChartData implements IChartData {
-  series: any;
-  xAxes: any
+  series: IChartTimeDataPoint[];
+  xAxes: any;
 
-  constructor (series: any, xAxes: any) {
+  constructor (series: IChartTimeDataPoint[], xAxes: any) {
     this.series = series;
     this.xAxes = xAxes;
   }

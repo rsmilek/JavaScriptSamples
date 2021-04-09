@@ -1,4 +1,7 @@
-const SERIES_MONTH = [
+import { IChartData } from '../abstractions/IChartData';
+import { IChartTimeDataPoint } from '../abstractions/IChartTimeDataPoint';
+
+const SERIES_MONTH: IChartTimeDataPoint[] = [
   {
     t: "2020-02-01T00:00",
     y: 1
@@ -113,7 +116,7 @@ const SERIES_MONTH = [
   }
 ];
 
-const XAXES = {
+const XAXES: any = {
   type: "time",
   time: {
     unit: "day",
@@ -124,7 +127,7 @@ const XAXES = {
   }
 };
 
-export const DATA_MONTH = {
+export const DATA_MONTH: IChartData = {
   series: SERIES_MONTH,
   xAxes: XAXES
 };
