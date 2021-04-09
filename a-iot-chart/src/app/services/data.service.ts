@@ -1,17 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
+import { IChartData } from '../abstractions/IChartData';
+
 import { DATA_DAY } from '../data/seriesDay';
 import { DATA_WEEK } from '../data/seriesWeek';
 import { DATA_MONTH } from '../data/seriesMonth';
 
 
 export const INTERVAL_INDEX_DEFAULT = 0;
-
-export interface IChartData {
-  series: any,
-  xAxes: any
-}
 
 class ChartData implements IChartData {
   series: any;
