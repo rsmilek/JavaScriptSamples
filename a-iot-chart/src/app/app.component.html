@@ -1,13 +1,4 @@
 <div>
-  <nav aria-label="Interval pagination">
-    <ul class="pagination justify-content-center m-2">
-      <li *ngFor="let item of intervals; let i = index" class="page-item" [ngClass]="(activeIdx == i) ? 'active' : ''">        
-        <a class="page-link" href="#{{item}}" (click)="ItemChanged(i)">{{item}}</a>
-      </li>
-    </ul>
-  </nav>
-</div>
-
-<div aria-label="Chart" class="justify-content-center mt-3">
-  <canvas id="myChart"></canvas>
+  <interval></interval>
+  <iot-chart></iot-chart>
 </div>
