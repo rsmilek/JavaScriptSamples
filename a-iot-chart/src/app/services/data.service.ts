@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
-import { DATA_DAY } from '../../data/seriesDay';
-import { DATA_WEEK } from '../../data/seriesWeek';
-import { DATA_MONTH } from '../../data/seriesMonth';
+import { DATA_DAY } from '../data/seriesDay';
+import { DATA_WEEK } from '../data/seriesWeek';
+import { DATA_MONTH } from '../data/seriesMonth';
 
 
 export const INTERVAL_INDEX_DEFAULT = 0;
