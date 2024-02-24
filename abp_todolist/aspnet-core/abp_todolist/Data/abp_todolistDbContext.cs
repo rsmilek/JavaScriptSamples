@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using abp_todolist.Entities;
+using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.EntityFrameworkCore;
 using Volo.Abp.FeatureManagement.EntityFrameworkCore;
@@ -17,6 +18,8 @@ public class abp_todolistDbContext : AbpDbContext<abp_todolistDbContext>
     {
     }
 
+    public DbSet<TodoItem> TodoItems { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -32,5 +35,11 @@ public class abp_todolistDbContext : AbpDbContext<abp_todolistDbContext>
         builder.ConfigureTenantManagement();
 
         /* Configure your own entities here */
+
+        /* Configure your own tables/entities inside here */
+        builder.Entity<TodoItem>(b =>
+        {
+            b.ToTable("TodoItems");
+        });
     }
 }

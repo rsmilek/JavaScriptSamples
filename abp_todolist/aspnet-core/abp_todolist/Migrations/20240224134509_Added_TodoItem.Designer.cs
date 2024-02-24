@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Volo.Abp.EntityFrameworkCore;
 using abp_todolist.Data;
@@ -12,9 +13,11 @@ using abp_todolist.Data;
 namespace abp_todolist.Migrations
 {
     [DbContext(typeof(abp_todolistDbContext))]
-    partial class abp_todolistDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240224134509_Added_TodoItem")]
+    partial class Added_TodoItem
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
