@@ -34,7 +34,8 @@
             "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "./node_modules/leaflet/dist/images"
             ],
             "styles": [
               "@angular/material/prebuilt-themes/indigo-pink.css",
