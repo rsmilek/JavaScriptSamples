@@ -5,12 +5,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MaterialModule } from './shared/material.module';
+
 import { MapComponent } from './map/map.component';
+import { GpxComponent } from './gpx/gpx.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    MapComponent
+    MapComponent,
+    GpxComponent
   ],
   imports: [
     BrowserModule,
