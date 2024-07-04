@@ -1,6 +1,8 @@
 import { Component, AfterViewInit } from '@angular/core';
 import * as Leaflet from 'leaflet';
 
+Leaflet.Icon.Default.imagePath = 'assets/';
+
 @Component({
   selector: 'app-map',
   templateUrl: './map.component.html',
@@ -22,10 +24,12 @@ export class MapComponent implements AfterViewInit {
  * "./node_modules/leaflet/dist/leaflet.css"
  * 
  * 2. Add into 'assets' section
- * "./node_modules/leaflet/dist/images"
-*/
+ * "./node_modules/leaflet/dist/images" and define Leaflet.Icon.Default.imagePath = 'assets/';
+ * or
+ * add images directly into assets
+ */
 
-  private initMap(): void {
+  private initMap(): void {    
 
     // var map = L.map('map').setView([51.505, -0.09], 13);
     this.map = Leaflet.map('map', {
