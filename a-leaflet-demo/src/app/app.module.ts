@@ -8,12 +8,14 @@ import { MaterialModule } from './shared/material.module';
 
 import { MapComponent } from './map/map.component';
 import { GpxComponent } from './gpx/gpx.component';
+import { ExportComponent } from './export/export.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MapComponent,
-    GpxComponent
+    GpxComponent,
+    ExportComponent
   ],
   imports: [
     BrowserModule,
