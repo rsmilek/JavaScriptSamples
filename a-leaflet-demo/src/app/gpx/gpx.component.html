@@ -1,5 +1,20 @@
+<div>
+    <button mat-raised-button color="primary" (click)="onExport()">Export</button>
+    <button mat-raised-button color="primary" (click)="onExport2()">Export2</button>
+    <button mat-raised-button color="primary" (click)="onExport3()">Export3</button>
+    <button mat-raised-button color="primary" (click)="onExport4()">Export4</button>
+</div>
 <div class="map-container">
     <div class="map-frame">
         <div id="map"></div>
     </div>
 </div>
+
+<!-- <img id="mapimg" [src]="getImgData()" alt="Map image"> -->
+<div id="capture" class="container">
+    <!-- <img src="your-image.jpg" alt="Image" class="image"> -->
+    <img id="mapimg" [src]="getImgData()" alt="Map image" class="image">
+    <div class="text">Your Text Here</div>
+</div>
+
+<a id="imageDownloadLink" style="display: none;"></a>        

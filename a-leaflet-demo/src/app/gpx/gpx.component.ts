@@ -1,6 +1,9 @@
 import { AfterViewInit, Component } from '@angular/core';
 import * as Leaflet from "leaflet";
 import "leaflet-gpx";
+import 'leaflet-easyprint';
+import 'leaflet.bigimage';
+import DomToImage from 'dom-to-image';
 
 @Component({
   selector: 'app-gpx',
@@ -9,20 +12,124 @@ import "leaflet-gpx";
 })
 export class GpxComponent implements AfterViewInit {
 
+  map2!: Leaflet.Map;
+  tile!: any;
+  imgData!: string;
+
   constructor() { }
 
   ngAfterViewInit(): void {
     this.displayGpx();
   }
 
-  private displayGpx(): void {
+  public onExport(): void {
+    var printPlugin = (Leaflet as any).easyPrint({
+      tileLayer: this.tile,
+      sizeModes: ['Current'/*, 'A4Portrait', 'A4Landscape'*/],
+      filename: 'pokus',
+      exportOnly: true,
+      // hideControlContainer: true,
+      // hidden: true // Hides Print button
+    }).addTo(this.map2);
+    printPlugin.printMap('CurrentSize', 'MyManualPrint');
+  }
 
-    const map = Leaflet.map('map');
-    Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  public onExport2(): void {
+    (Leaflet as any).control.bigImage({position: 'topright'}).addTo(this.map2);
+  }
+
+  public onExport3(): void {
+    var node = this.map2.getContainer();
+
+    DomToImage.toPng(node, {
+      width: 300,
+      height: 400
+    })
+        .then((dataUrl) => {
+            // console.log(dataUrl);
+            // console.log(node.style.width);
+            // console.log(parseInt(node.style.height));
+
+            this.imgData = dataUrl;
+
+            var link = document.createElement('a');
+            link.style.display = 'none';
+            link.download = 'my-image-name.png';
+            link.href = dataUrl;
+            link.click();            
+        })
+        .catch((error) => {
+            console.error('oops, something went wrong!', error);
+        });
+
+/*
+    DomToImage.toPng(node)
+        .then(function (dataUrl: string) {
+            // var img = new Image();
+            // img.src = dataUrl;
+            // document.body.appendChild(img);
+
+            console.log(dataUrl);
+
+            var link = document.createElement('a');
+            link.style.display = 'none';
+            link.download = 'my-image-name.png';
+            link.href = dataUrl;
+            link.click();            
+
+            // var link = document.getElementById('#imageDownloadLink') as HTMLAnchorElement;
+            // link.download = 'my-image-name.png';
+            // link.href = dataUrl;
+            // link.click();            
+
+            
+            
+        })
+        .catch(function (error) {
+            console.error('oops, something went wrong!', error);
+        });
+*/
+  }
+
+
+  public onExport4(): void {
+    var node = document.getElementById('capture');
+
+    DomToImage.toPng(node!)
+      .then((dataUrl) => {
+          var link = document.createElement('a');
+          link.style.display = 'none';
+          link.download = 'my-image-name2.png';
+          link.href = dataUrl;
+          link.click();            
+      })
+      .catch((error) => {
+          console.error('oops, something went wrong!', error);
+      });
+  }
+
+  public getImgData() {
+    return this.imgData;
+  }
+
+  private displayGpx(): void {
+    const map = Leaflet.map('map', {
+      zoomControl: false, // Disable the default zoom control
+      dragging: false,    // Disable dragging
+      scrollWheelZoom: false, // Disable zooming by scroll wheel
+      doubleClickZoom: false, // Disable zooming by double click
+      boxZoom: false,     // Disable zooming by box selection
+      keyboard: false     // Disable keyboard controls      
+    });
+
+    this.map2 = map;
+
+    this.tile = Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
     }).addTo(map);
 
-    var gpx = 'assets/activity_16224685461.gpx'; // URL to your GPX file or the GPX itself
+    // var gpx = 'assets/activity_16224685461.gpx'; // URL to your GPX file or the GPX itself
+    var gpx = 'assets/activity_bike.gpx'; // URL to your GPX file or the GPX itself
     new Leaflet.GPX(gpx, {
       async: true,
       // marker_options: {
@@ -52,6 +159,17 @@ export class GpxComponent implements AfterViewInit {
       console.log(`elevation_gain ${e.target.get_elevation_gain()} m`);
     })
     .addTo(map);
+
+
+    (Leaflet as any).easyPrint({
+      tileLayer: this.tile,
+      sizeModes: ['Current', 'A4Portrait', 'A4Landscape'],
+      title: 'My awesome print button',
+      position: 'bottomleft',
+      exportOnly: true,
+      hideControlContainer: true,
+      filename: 'pokus'
+    }).addTo(map);
 
   }
 
