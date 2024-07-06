@@ -2,7 +2,6 @@ import { AfterViewInit, Component } from '@angular/core';
 import * as Leaflet from "leaflet";
 import "leaflet-gpx";
 import 'leaflet-easyprint';
-import 'leaflet.bigimage';
 import DomToImage from 'dom-to-image';
 
 @Component({
@@ -22,7 +21,7 @@ export class GpxComponent implements AfterViewInit {
     this.displayGpx();
   }
 
-  public onExport(): void {
+  public onExportEasyPrintManual(): void {
     var printPlugin = (Leaflet as any).easyPrint({
       tileLayer: this.tile,
       sizeModes: ['Current'/*, 'A4Portrait', 'A4Landscape'*/],
@@ -32,10 +31,6 @@ export class GpxComponent implements AfterViewInit {
       // hidden: true // Hides Print button
     }).addTo(this.map2);
     printPlugin.printMap('CurrentSize', 'MyManualPrint');
-  }
-
-  public onExport2(): void {
-    (Leaflet as any).control.bigImage({position: 'topright'}).addTo(this.map2);
   }
 
   public onExport3(): void {
