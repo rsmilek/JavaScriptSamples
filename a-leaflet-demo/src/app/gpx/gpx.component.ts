@@ -11,7 +11,7 @@ import DomToImage from 'dom-to-image';
 })
 export class GpxComponent implements AfterViewInit {
 
-  map2!: Leaflet.Map;
+  map!: Leaflet.Map;
   tile!: any;
   imgData!: string;
 
@@ -21,6 +21,7 @@ export class GpxComponent implements AfterViewInit {
     this.displayGpx();
   }
 
+  
   public onExportEasyPrintManual(): void {
     var printPlugin = (Leaflet as any).easyPrint({
       tileLayer: this.tile,
@@ -29,65 +30,38 @@ export class GpxComponent implements AfterViewInit {
       exportOnly: true,
       // hideControlContainer: true,
       // hidden: true // Hides Print button
-    }).addTo(this.map2);
+    }).addTo(this.map);
     printPlugin.printMap('CurrentSize', 'MyManualPrint');
   }
 
-  public onExport3(): void {
-    var node = this.map2.getContainer();
+
+  public onExportDomToImage(): void {
+    var node = this.map.getContainer();
 
     DomToImage.toPng(node, {
       width: 300,
       height: 400
     })
-        .then((dataUrl) => {
-            // console.log(dataUrl);
-            // console.log(node.style.width);
-            // console.log(parseInt(node.style.height));
+    .then((dataUrl: string) => {
+        // console.log(dataUrl);
+        // console.log(node.style.width);
+        // console.log(parseInt(node.style.height));
 
-            this.imgData = dataUrl;
+        this.imgData = dataUrl;
 
-            var link = document.createElement('a');
-            link.style.display = 'none';
-            link.download = 'my-image-name.png';
-            link.href = dataUrl;
-            link.click();            
-        })
-        .catch((error) => {
-            console.error('oops, something went wrong!', error);
-        });
-
-/*
-    DomToImage.toPng(node)
-        .then(function (dataUrl: string) {
-            // var img = new Image();
-            // img.src = dataUrl;
-            // document.body.appendChild(img);
-
-            console.log(dataUrl);
-
-            var link = document.createElement('a');
-            link.style.display = 'none';
-            link.download = 'my-image-name.png';
-            link.href = dataUrl;
-            link.click();            
-
-            // var link = document.getElementById('#imageDownloadLink') as HTMLAnchorElement;
-            // link.download = 'my-image-name.png';
-            // link.href = dataUrl;
-            // link.click();            
-
-            
-            
-        })
-        .catch(function (error) {
-            console.error('oops, something went wrong!', error);
-        });
-*/
+        var link = document.createElement('a');
+        link.style.display = 'none';
+        link.download = 'my-image-name.png';
+        link.href = dataUrl;
+        link.click();            
+    })
+    .catch((error) => {
+        console.error('oops, something went wrong!', error);
+    });
   }
 
 
-  public onExport4(): void {
+  public onExportImgOverlay(): void {
     var node = document.getElementById('capture');
 
     DomToImage.toPng(node!)
@@ -107,6 +81,7 @@ export class GpxComponent implements AfterViewInit {
     return this.imgData;
   }
 
+
   private displayGpx(): void {
     const map = Leaflet.map('map', {
       zoomControl: false, // Disable the default zoom control
@@ -117,7 +92,7 @@ export class GpxComponent implements AfterViewInit {
       keyboard: false     // Disable keyboard controls      
     });
 
-    this.map2 = map;
+    this.map = map;
 
     this.tile = Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
