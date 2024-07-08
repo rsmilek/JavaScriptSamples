@@ -34,10 +34,11 @@ export class ExportComponent implements AfterViewInit {
     const input = event.target as HTMLInputElement;
     if (input.files) {
       let files = input.files;
-      for (let index = 0; index < files.length; index++) {
+      let count = files.length;
+      for (let index = 0; index < count; index++) {
         let reader = new FileReader();
         reader.onload = (e) => {
-          this.displayGpx(reader.result as string);
+          this.displayGpx(reader.result as string, index, count);
         };
         reader.readAsText(files[index]);
       }
@@ -94,7 +95,9 @@ export class ExportComponent implements AfterViewInit {
     }).addTo(this.map);
   }
 
-  private displayGpx(gpx: string): void {
+  private displayGpx(gpx: string, index: number, count: number): void {
+    const colors: string[] = ['red', 'purple', 'blue', 'green'];
+    let colorIndex = (index + count) % count;
     const iconOptionsBase : Leaflet.BaseIconOptions = {
       shadowUrl: 'assets/marker-shadow.png',
       iconSize:     [13, 20],
@@ -110,9 +113,9 @@ export class ExportComponent implements AfterViewInit {
         endIcon:    Leaflet.icon({...iconOptionsBase, iconUrl: 'assets/pin-icon-end.png'})
       },
       polyline_options: {
-        color: 'red',
+        color: colors[colorIndex+2],
         opacity: 0.75,
-        weight: 3,
+        weight: 4,
         lineCap: 'round'
       }
     })
