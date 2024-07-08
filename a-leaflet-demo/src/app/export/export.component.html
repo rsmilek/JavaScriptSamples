@@ -10,6 +10,11 @@
 <!-- Neproblikava -->
 <div id="map" style="width:400px; height:300px"></div>
 
+<div class="file-upload-container">
+    <button mat-raised-button color="primary" (click)="fileInput.click()">Select GPX File</button>
+    <input #fileInput type="file" (change)="onFileSelected($event)" accept=".gpx" style="display: none;" />
+</div>
+
 <div>
     <button mat-raised-button color="primary" (click)="onPrintManual()">Print-Manual</button>
 </div>

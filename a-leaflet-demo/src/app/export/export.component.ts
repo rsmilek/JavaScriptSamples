@@ -20,8 +20,11 @@ export class ExportComponent implements AfterViewInit {
   private readonly defaultHeight: number = 375;
 
   private map!: Leaflet.Map;
+  private tileLayer!: Leaflet.TileLayer;
   private printer!: any;
   private imgData!: string;
+
+  private fileContent: string | ArrayBuffer | null = null;
 
   constructor() { }
 
@@ -29,9 +32,25 @@ export class ExportComponent implements AfterViewInit {
     this.initMap();
   }
 
-  getImgData() {
+  public getImgData() {
     return this.imgData;
   }
+
+  public onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+
+    if (input.files && input.files[0]) {
+      const file = input.files[0];
+      const reader = new FileReader();
+
+      reader.onload = (e) => {
+        this.fileContent = reader.result;
+        this.displayGpx(this.fileContent as string);
+      };
+
+      reader.readAsText(file);
+    }
+  }  
 
   public onPrintManual() {
     // this.printer.printMap('CurrentSize', 'MyManualPrint');
@@ -39,7 +58,7 @@ export class ExportComponent implements AfterViewInit {
 
     this.printer.options.a4PageSize.width = 400;
     this.printer.options.a4PageSize.height = 400;
-    this.printer.options.exportSaveDialog = false;
+    this.printer.options.exportSaveDialog = true;
     this.printer.printMap('A4Landscape page', 'MyManualPrint');
   }
 
@@ -47,32 +66,23 @@ export class ExportComponent implements AfterViewInit {
   private initMap(): void {    
     this.map = Leaflet.map('map', {
       center: [ 51.505, -0.09 ],
-      zoom: 12
+      zoom: 12,
+      // zoomControl: false, // Disable the default zoom control
+      // dragging: false,    // Disable dragging
+      // scrollWheelZoom: false, // Disable zooming by scroll wheel
+      // doubleClickZoom: false, // Disable zooming by double click
+      // boxZoom: false,     // Disable zooming by box selection
+      // keyboard: false     // Disable keyboard controls      
     });
 
-    const tiles = Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    this.tileLayer = Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 18,
       minZoom: 3,
-      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+      attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
     }).addTo(this.map);
-
-    const marker = Leaflet.marker([51.5, -0.09]).addTo(this.map);
-
-    const circle = Leaflet.circle([51.508, -0.11], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-    }).addTo(this.map);
-
-    const polygon = Leaflet.polygon([
-      [51.509, -0.08],
-      [51.503, -0.06],
-      [51.51, -0.047]
-    ]).addTo(this.map);
 
     this.printer = (Leaflet as any).easyPrint({
-      tileLayer: tiles,
+      tileLayer: this.tileLayer,
       sizeModes: ['Current', 'A4Landscape', 'A4Portrait'],
       filename: 'myMap',
       exportOnly: true,
@@ -90,7 +100,38 @@ export class ExportComponent implements AfterViewInit {
         height: this.defaultHeight
     }
     }).addTo(this.map);
+  }
 
+  private displayGpx(gpx: string): void {
+    new Leaflet.GPX(gpx, {
+      async: true,
+      // marker_options: {
+      //   startIconUrl: "assets/marker-icon.png",
+      //   endIconUrl: "assets/marker-icon.png",
+      //   shadowUrl: "assets/marker-shadow.png"
+      // },
+      marker_options: {
+        startIconUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-icon-start.png',
+        endIconUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-icon-end.png',
+        shadowUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-shadow.png'
+      },
+      polyline_options: {
+        color: 'blue',
+        opacity: 0.75,
+        weight: 5,
+        lineCap: 'round'
+      }
+    })
+    .on('loaded', (e) => {
+      this.map.fitBounds(e.target.getBounds());
+
+      console.log(`name ${e.target.get_name()}`);
+      console.log(`distance ${e.target.get_distance()} m`);
+      console.log(`total_time ${e.target.get_total_time()} ms`);
+      console.log(`total_speed ${e.target.get_total_speed()} km/h`);
+      console.log(`elevation_gain ${e.target.get_elevation_gain()} m`);
+    })
+    .addTo(this.map);
   }
 
 }
