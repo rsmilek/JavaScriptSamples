@@ -4,10 +4,6 @@ import './leaflet-easyexport';
 
 Leaflet.Icon.Default.imagePath = 'assets/';
 
-function PokusFnc(value: string): any {
-  console.log(`PokusFnc ${value}`);
-}
-
 @Component({
   selector: 'app-export',
   templateUrl: './export.component.html',
@@ -36,15 +32,13 @@ export class ExportComponent implements AfterViewInit {
 
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
-
-    const reader = new FileReader();
-    reader.onload = (e) => {
-      this.displayGpx(reader.result as string);
-    };
-
     if (input.files) {
-      const files = input.files;
+      let files = input.files;
       for (let index = 0; index < files.length; index++) {
+        let reader = new FileReader();
+        reader.onload = (e) => {
+          this.displayGpx(reader.result as string);
+        };
         reader.readAsText(files[index]);
       }
     }
