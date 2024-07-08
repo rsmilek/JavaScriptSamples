@@ -12,7 +12,7 @@
 
 <div class="file-upload-container">
     <button mat-raised-button color="primary" (click)="fileInput.click()">Select GPX File</button>
-    <input #fileInput type="file" (change)="onFileSelected($event)" accept=".gpx" style="display: none;" />
+    <input #fileInput type="file" (change)="onFileSelected($event)" accept=".gpx" multiple style="display: none;" />
 </div>
 
 <div>

@@ -24,8 +24,6 @@ export class ExportComponent implements AfterViewInit {
   private printer!: any;
   private imgData!: string;
 
-  private fileContent: string | ArrayBuffer | null = null;
-
   constructor() { }
 
   public ngAfterViewInit(): void {
@@ -39,16 +37,16 @@ export class ExportComponent implements AfterViewInit {
   public onFileSelected(event: Event): void {
     const input = event.target as HTMLInputElement;
 
-    if (input.files && input.files[0]) {
-      const file = input.files[0];
-      const reader = new FileReader();
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      this.displayGpx(reader.result as string);
+    };
 
-      reader.onload = (e) => {
-        this.fileContent = reader.result;
-        this.displayGpx(this.fileContent as string);
-      };
-
-      reader.readAsText(file);
+    if (input.files) {
+      const files = input.files;
+      for (let index = 0; index < files.length; index++) {
+        reader.readAsText(files[index]);
+      }
     }
   }  
 
@@ -76,8 +74,8 @@ export class ExportComponent implements AfterViewInit {
     });
 
     this.tileLayer = Leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom: 18,
-      minZoom: 3,
+      // maxZoom: 18,
+      // minZoom: 3,
       attribution: 'Map data &copy; <a href="http://www.osm.org">OpenStreetMap</a>'
     }).addTo(this.map);
 
@@ -118,7 +116,7 @@ export class ExportComponent implements AfterViewInit {
       polyline_options: {
         color: 'blue',
         opacity: 0.75,
-        weight: 5,
+        weight: 3,
         lineCap: 'round'
       }
     })
