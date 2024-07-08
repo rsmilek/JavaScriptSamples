@@ -95,19 +95,7 @@ export class ExportComponent implements AfterViewInit {
   }
 
   private displayGpx(gpx: string): void {
-
-    // const iOptions : Leaflet.IconOptions = {
-    //       iconUrl: 'assets/marker-icon.png',
-    //       shadowUrl: 'assets/marker-shadow.png',
-    //       iconSize:     [25, 41],
-    //       shadowSize:   [41, 41],
-    //       iconAnchor:   [12, 40],
-    //       shadowAnchor: [20, 40],
-    //       // popupAnchor:  [-3, -76]
-    //       popupAnchor:  [0, 0]
-    // };
-
-    const ibOptions : Leaflet.BaseIconOptions = {
+    const iconOptionsBase : Leaflet.BaseIconOptions = {
       shadowUrl: 'assets/marker-shadow.png',
       iconSize:     [13, 20],
       shadowSize:   [20, 20],
@@ -115,39 +103,12 @@ export class ExportComponent implements AfterViewInit {
       shadowAnchor: [9, 19],
       popupAnchor:  [0, 0]
     };
-    // const ibOptions : Leaflet.BaseIconOptions = {
-    //   shadowUrl: 'assets/marker-shadow.png',
-    //   iconSize:     [19, 31],
-    //   shadowSize:   [31, 31],
-    //   iconAnchor:   [9, 15],
-    //   shadowAnchor: [15, 15],
-    //   popupAnchor:  [0, 0]
-    // };
-    // const ibOptions : Leaflet.BaseIconOptions = {
-    //   shadowUrl: 'assets/marker-shadow.png',
-    //   iconSize:     [16, 27],
-    //   shadowSize:   [27, 27],
-    //   iconAnchor:   [8, 16],
-    //   shadowAnchor: [13, 16],
-    //   popupAnchor:  [0, 0]
-    // };
-
     new Leaflet.GPX(gpx, {
       async: true,
       marker_options: {
-        startIcon:  Leaflet.icon({...ibOptions, iconUrl: 'assets/pin-icon-start.png'}),
-        endIcon:    Leaflet.icon({...ibOptions, iconUrl: 'assets/pin-icon-end.png'})
+        startIcon:  Leaflet.icon({...iconOptionsBase, iconUrl: 'assets/pin-icon-start.png'}),
+        endIcon:    Leaflet.icon({...iconOptionsBase, iconUrl: 'assets/pin-icon-end.png'})
       },
-      // marker_options: {
-      //   startIconUrl: "assets/marker-icon.png",
-      //   endIconUrl: "assets/marker-icon.png",
-      //   shadowUrl: "assets/marker-shadow.png"
-      // },
-      // marker_options: {
-      //   startIconUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-icon-start.png',
-      //   endIconUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-icon-end.png',
-      //   shadowUrl: 'https://cdn.jsdelivr.net/npm/leaflet-gpx@1.7.0/pin-shadow.png'
-      // },
       polyline_options: {
         color: 'red',
         opacity: 0.75,
@@ -157,8 +118,6 @@ export class ExportComponent implements AfterViewInit {
     })
     .on('loaded', (e) => {
       this.map.fitBounds(e.target.getBounds());
-
-      console.log(e.target.getBounds());
 
       console.log(`name ${e.target.get_name()}`);
       console.log(`distance ${e.target.get_distance()} m`);
