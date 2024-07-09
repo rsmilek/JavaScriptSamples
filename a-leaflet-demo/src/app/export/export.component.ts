@@ -120,7 +120,7 @@ export class ExportComponent implements AfterViewInit {
       }
     })
     .on('loaded', (e) => {
-      this.map.fitBounds(e.target.getBounds());
+      this.map.fitBounds(e.target.getBounds());   
 
       console.log(`name ${e.target.get_name()}`);
       console.log(`distance ${e.target.get_distance()} m`);
