@@ -96,7 +96,7 @@ export class ExportComponent implements AfterViewInit {
   }
 
   private displayGpx(gpx: string, index: number, count: number): void {
-    const colors: string[] = ['red', 'purple', 'blue', 'green'];
+    const colors: string[] = ['red', 'green', 'blue', 'purple'];
     let colorIndex = (index + count) % count;
     const iconOptionsBase : Leaflet.BaseIconOptions = {
       shadowUrl: 'assets/marker-shadow.png',
@@ -113,7 +113,7 @@ export class ExportComponent implements AfterViewInit {
         endIcon:    Leaflet.icon({...iconOptionsBase, iconUrl: 'assets/pin-icon-end.png'})
       },
       polyline_options: {
-        color: colors[colorIndex+2],
+        color: colors[colorIndex],
         opacity: 0.75,
         weight: 4,
         lineCap: 'round'
